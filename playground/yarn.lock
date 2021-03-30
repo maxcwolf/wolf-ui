@@ -7596,6 +7596,11 @@ html-webpack-plugin@^4.0.0-beta.2, html-webpack-plugin@^4.2.1:
     tapable "^1.1.3"
     util.promisify "1.0.0"
 
+html5-device-mockups@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/html5-device-mockups/-/html5-device-mockups-3.2.1.tgz#97e39de69e9fa86760116653d8daf5fe43be77d5"
+  integrity sha512-jxuLuDf9iABIoFlclVGmhjC3sH91JquIOz6ByKsROg/0ztqamac3XYlnA3GZHfQNM6XZRIsNX8OWal+2R/CTEQ==
+
 htmlparser2@^3.10.1:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/htmlparser2/-/htmlparser2-3.10.1.tgz#bd679dc3f59897b6a34bb10749c855bb53a9392f"
@@ -11233,6 +11238,11 @@ react-dev-utils@^9.0.0:
     sockjs-client "1.4.0"
     strip-ansi "5.2.0"
     text-table "0.2.0"
+
+react-device-mockups@^0.1.10:
+  version "0.1.10"
+  resolved "https://registry.yarnpkg.com/react-device-mockups/-/react-device-mockups-0.1.10.tgz#f388ea956b438eae0e92f1c05767adb286c349bd"
+  integrity sha512-jQ7t5ZZS/8jWAWAgM4JBINCaTfh9fLDFfAB6PlRUtTSZ/FyxERZnA1S4CRJXWR1VIh2Ox45G5nn/wtvHoVRzvQ==
 
 react-devtools-core@^4.6.0:
   version "4.10.1"

@@ -1,10 +1,18 @@
 # React Native Component Library
 
-A thematic and type-safe React Native component library.
+A thematic and type-safe React Native component library and Storybook playground.
+
+## Design Tokens
+
+Design tokens are the base level visual design pieces of a design system. They are named entities that store visual design attributes. We use them in place of hard-coded values (such as hex values for color or pixel values for spacing) in order to maintain a scalable and consistent visual system for UI development. Tokens are universal and never change across themes. Design tokens are translated into themes for use in styling components.
+
+## Theme
+
+The theme translates the design tokens into more meaningful properties for use in our component styles. The theme should follow the [Theme Specification](https://system-ui.com/theme/) (also see [style-system](https://styled-system.com/theme-specification/)'s or [theme-ui](https://theme-ui.com/theme-spec/)'s theme specification documentation).
 
 ## Restyle
 
-For this component library we are using [Restyle](https://github.com/Shopify/restyle) to create theme-reliant and type-safe components. Restyle is very similar to [styled-system](www.styled-system.com)'s theme specification, but has some advantages for React Native. Restyle utilizes the native styling layer rather than relying on Styled Components or Emotion like styled-system does, therefore it requires less runtime style calculation. Restyle also has much better Typescript support out of the box.
+This component library uses [Restyle](https://github.com/Shopify/restyle) to create theme-reliant and type-safe components. Restyle is very similar to [styled-system](www.styled-system.com), but has some advantages for React Native. Restyle utilizes the native styling layer rather than relying on Styled Components or Emotion like styled-system does, therefore it requires less runtime style calculation. Restyle also has much better Typescript support out of the box.
 
 From [Restyle's docs](https://github.com/Shopify/restyle#shopifyrestyle):
 
@@ -14,11 +22,15 @@ From [Restyle's docs](https://github.com/Shopify/restyle#shopifyrestyle):
 
 ### Restyle Functions
 
-Restyle functions are the bread and butter of Restyle. They specify how props should be mapped to values in a resulting style object, that can then be passed down to a React Native component. The props support [responsive values](#responsive-values) and can be mapped to values in your theme.
+Restyle functions are used to specify how props should be mapped to values in a resulting style object, that can then be passed down to a React Native component.
 
-#### Predefined Restyle Functions
+TODO: New restyle functions should be created for Props that do no have a mapping to theme properties.
 
-The Restyle library comes with a number of predefined Restyle functions for your convenience. Properties within brackets are aliases / shorthands for the preceding prop name. Generally, favor using the shorthand for consistency and preventing
+#### Default Restyle Functions
+
+Below are the default restyle functions, however one of the goals of this library is to have as close to 1 to 1 API with styled-system's theme specification so that the same theme objects may be used on web (styled-system) as well as mobile (Restyle).
+
+Properties within brackets are aliases / shorthands for the preceding prop name. Generally, favor using the shorthand for consistency and brevity.
 
 | Restyle Function | Props                                                                                                                                                                                                                                                                                                                                  | Theme Key   |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |

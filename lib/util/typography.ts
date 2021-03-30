@@ -19,6 +19,6 @@ export const typographySize = getKeys(typographySizeProperties).map(
   (property) =>
     createRestyleFunction({
       property,
-      themeKey: 'spacing', // TODO: add new theme property for typography size?
+      themeKey: 'fontSizing', // TODO: add new theme property for typography size
     }),
 )
