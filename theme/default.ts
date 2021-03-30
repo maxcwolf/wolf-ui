@@ -1,3 +1,9 @@
+/**
+ * @description Default Theme Spec
+ *
+ * @todo This folder should be converted to a package when this Repo is changed to a
+ *  Lerna monorepo.
+ */
 import { createTheme } from '@shopify/restyle'
 import { palette } from '../tokens/default'
 

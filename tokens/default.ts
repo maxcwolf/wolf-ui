@@ -1,4 +1,10 @@
-// Default Design Tokens
+/**
+ * @description Default Design Tokens
+ *
+ * @todo This folder should be converted to a package when this Repo is changed to a
+ *  Lerna monorepo. Multiple token files should be created for any additional designs
+ *  introduced.
+ */
 
 export const palette = {
   black: '#0B0B0B',

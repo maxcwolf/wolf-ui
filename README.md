@@ -1,6 +1,6 @@
 # React Native Component Library
 
-A thematic and typesafe React Native component library.
+A thematic and type-safe React Native component library.
 
 ## Restyle
 
@@ -18,7 +18,7 @@ Restyle functions are the bread and butter of Restyle. They specify how props sh
 
 #### Predefined Restyle Functions
 
-The Restyle library comes with a number of predefined Restyle functions for your convenience. Properties within brackets are aliases / shorthands for the preceding prop name.
+The Restyle library comes with a number of predefined Restyle functions for your convenience. Properties within brackets are aliases / shorthands for the preceding prop name. Generally, favor using the shorthand for consistency and preventing
 
 | Restyle Function | Props                                                                                                                                                                                                                                                                                                                                  | Theme Key   |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
