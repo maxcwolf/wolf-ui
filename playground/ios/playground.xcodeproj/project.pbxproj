@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* playgroundtsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* playgroundtsTests.m */; };
+		00E356F31AD99517003FC87E /* playgroundTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* playgroundTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		4DCD21395C194150CF240183 /* libPods-playgroundts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDC4F6BA57BDE5B0BA9D7DD2 /* libPods-playgroundts.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		AF8D6F5A0DD8262C6557FE09 /* libPods-playgroundts-playgroundtsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C23DF7D4481649DF5901383 /* libPods-playgroundts-playgroundtsTests.a */; };
+		BA3F52B84F0433E2A6959D24 /* libPods-playground.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EC71E3F898C1840CA75F38E /* libPods-playground.a */; };
+		C591B05531B44782AB400E5A /* libPods-playground-playgroundTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC6E3EDD9F72A309D1DBEDE /* libPods-playground-playgroundTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,28 +22,28 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = playgroundts;
+			remoteInfo = playground;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00E356EE1AD99517003FC87E /* playgroundtsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = playgroundtsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* playgroundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = playgroundTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* playgroundtsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = playgroundtsTests.m; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* playgroundts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = playgroundts.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = playgroundts/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = playgroundts/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = playgroundts/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = playgroundts/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = playgroundts/main.m; sourceTree = "<group>"; };
-		2C23DF7D4481649DF5901383 /* libPods-playgroundts-playgroundtsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-playgroundts-playgroundtsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		314D7C07011A013AFF9D8BF7 /* Pods-playgroundts-playgroundtsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-playgroundts-playgroundtsTests.release.xcconfig"; path = "Target Support Files/Pods-playgroundts-playgroundtsTests/Pods-playgroundts-playgroundtsTests.release.xcconfig"; sourceTree = "<group>"; };
-		707E54D61C1A3C54633CB89B /* Pods-playgroundts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-playgroundts.release.xcconfig"; path = "Target Support Files/Pods-playgroundts/Pods-playgroundts.release.xcconfig"; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = playgroundts/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8CD7893CE86D94BAEA7587FB /* Pods-playgroundts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-playgroundts.debug.xcconfig"; path = "Target Support Files/Pods-playgroundts/Pods-playgroundts.debug.xcconfig"; sourceTree = "<group>"; };
-		DDC4F6BA57BDE5B0BA9D7DD2 /* libPods-playgroundts.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-playgroundts.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356F21AD99517003FC87E /* playgroundTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = playgroundTests.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* playground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = playground.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = playground/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = playground/AppDelegate.m; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = playground/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = playground/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = playground/main.m; sourceTree = "<group>"; };
+		2CE78CD3EFC2D6BC4A3D2DCF /* Pods-playground-playgroundTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-playground-playgroundTests.debug.xcconfig"; path = "Target Support Files/Pods-playground-playgroundTests/Pods-playground-playgroundTests.debug.xcconfig"; sourceTree = "<group>"; };
+		370A90E31924ADA16A170953 /* Pods-playground-playgroundTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-playground-playgroundTests.release.xcconfig"; path = "Target Support Files/Pods-playground-playgroundTests/Pods-playground-playgroundTests.release.xcconfig"; sourceTree = "<group>"; };
+		3995A50522581D4F16E4D92C /* Pods-playground.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-playground.release.xcconfig"; path = "Target Support Files/Pods-playground/Pods-playground.release.xcconfig"; sourceTree = "<group>"; };
+		7D1447D2EA4D2B4D4F9FC395 /* Pods-playground.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-playground.debug.xcconfig"; path = "Target Support Files/Pods-playground/Pods-playground.debug.xcconfig"; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = playground/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8EC71E3F898C1840CA75F38E /* libPods-playground.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-playground.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F801E65CA25F59DDBB6B7F53 /* Pods-playgroundts-playgroundtsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-playgroundts-playgroundtsTests.debug.xcconfig"; path = "Target Support Files/Pods-playgroundts-playgroundtsTests/Pods-playgroundts-playgroundtsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FBC6E3EDD9F72A309D1DBEDE /* libPods-playground-playgroundTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-playground-playgroundTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF8D6F5A0DD8262C6557FE09 /* libPods-playgroundts-playgroundtsTests.a in Frameworks */,
+				C591B05531B44782AB400E5A /* libPods-playground-playgroundTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,20 +59,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DCD21395C194150CF240183 /* libPods-playgroundts.a in Frameworks */,
+				BA3F52B84F0433E2A6959D24 /* libPods-playground.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* playgroundtsTests */ = {
+		00E356EF1AD99517003FC87E /* playgroundTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* playgroundtsTests.m */,
+				00E356F21AD99517003FC87E /* playgroundTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = playgroundtsTests;
+			path = playgroundTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -83,7 +83,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* playgroundts */ = {
+		13B07FAE1A68108700A75B9A /* playground */ = {
 			isa = PBXGroup;
 			children = (
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -93,29 +93,29 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = playgroundts;
-			sourceTree = "<group>";
-		};
-		2645E989576592C3B39FDD58 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				8CD7893CE86D94BAEA7587FB /* Pods-playgroundts.debug.xcconfig */,
-				707E54D61C1A3C54633CB89B /* Pods-playgroundts.release.xcconfig */,
-				F801E65CA25F59DDBB6B7F53 /* Pods-playgroundts-playgroundtsTests.debug.xcconfig */,
-				314D7C07011A013AFF9D8BF7 /* Pods-playgroundts-playgroundtsTests.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
+			name = playground;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				DDC4F6BA57BDE5B0BA9D7DD2 /* libPods-playgroundts.a */,
-				2C23DF7D4481649DF5901383 /* libPods-playgroundts-playgroundtsTests.a */,
+				8EC71E3F898C1840CA75F38E /* libPods-playground.a */,
+				FBC6E3EDD9F72A309D1DBEDE /* libPods-playground-playgroundTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		47CD9AE3D30BB8084858FCA9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7D1447D2EA4D2B4D4F9FC395 /* Pods-playground.debug.xcconfig */,
+				3995A50522581D4F16E4D92C /* Pods-playground.release.xcconfig */,
+				2CE78CD3EFC2D6BC4A3D2DCF /* Pods-playground-playgroundTests.debug.xcconfig */,
+				370A90E31924ADA16A170953 /* Pods-playground-playgroundTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -128,12 +128,12 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* playgroundts */,
+				13B07FAE1A68108700A75B9A /* playground */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* playgroundtsTests */,
+				00E356EF1AD99517003FC87E /* playgroundTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				2645E989576592C3B39FDD58 /* Pods */,
+				47CD9AE3D30BB8084858FCA9 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -143,8 +143,8 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* playgroundts.app */,
-				00E356EE1AD99517003FC87E /* playgroundtsTests.xctest */,
+				13B07F961A680F5B00A75B9A /* playground.app */,
+				00E356EE1AD99517003FC87E /* playgroundTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -152,47 +152,47 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* playgroundtsTests */ = {
+		00E356ED1AD99517003FC87E /* playgroundTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "playgroundtsTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "playgroundTests" */;
 			buildPhases = (
-				EB3B3620C34D273106E8DBFB /* [CP] Check Pods Manifest.lock */,
+				2F014D7E4EBE1502E3818121 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				7AAB6A826632D2E48261F152 /* [CP] Embed Pods Frameworks */,
-				90E9476175D7127FE8A9E2B5 /* [CP] Copy Pods Resources */,
+				60E546B2688D01CC466F115C /* [CP] Embed Pods Frameworks */,
+				5715B514FF855F05CE820695 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = playgroundtsTests;
-			productName = playgroundtsTests;
-			productReference = 00E356EE1AD99517003FC87E /* playgroundtsTests.xctest */;
+			name = playgroundTests;
+			productName = playgroundTests;
+			productReference = 00E356EE1AD99517003FC87E /* playgroundTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* playgroundts */ = {
+		13B07F861A680F5B00A75B9A /* playground */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "playgroundts" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "playground" */;
 			buildPhases = (
-				D93135C9111F943CE6FFC33B /* [CP] Check Pods Manifest.lock */,
+				E12F1425CAEB0C8A4EC77BF2 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				C13DE6EA8F70B20F0730B2A2 /* [CP] Embed Pods Frameworks */,
-				50CCF3C3595B7989F9A9DEAC /* [CP] Copy Pods Resources */,
+				F815CF3F5EAB365012D21DF5 /* [CP] Embed Pods Frameworks */,
+				7F27C4646FEF33601B8FC853 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = playgroundts;
-			productName = playgroundts;
-			productReference = 13B07F961A680F5B00A75B9A /* playgroundts.app */;
+			name = playground;
+			productName = playground;
+			productReference = 13B07F961A680F5B00A75B9A /* playground.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -212,7 +212,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "playgroundts" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "playground" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -225,8 +225,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* playgroundts */,
-				00E356ED1AD99517003FC87E /* playgroundtsTests */,
+				13B07F861A680F5B00A75B9A /* playground */,
+				00E356ED1AD99517003FC87E /* playgroundTests */,
 			);
 		};
 /* End PBXProject section */
@@ -265,75 +265,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		50CCF3C3595B7989F9A9DEAC /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-playgroundts/Pods-playgroundts-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-playgroundts/Pods-playgroundts-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-playgroundts/Pods-playgroundts-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7AAB6A826632D2E48261F152 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-playgroundts-playgroundtsTests/Pods-playgroundts-playgroundtsTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-playgroundts-playgroundtsTests/Pods-playgroundts-playgroundtsTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-playgroundts-playgroundtsTests/Pods-playgroundts-playgroundtsTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		90E9476175D7127FE8A9E2B5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-playgroundts-playgroundtsTests/Pods-playgroundts-playgroundtsTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-playgroundts-playgroundtsTests/Pods-playgroundts-playgroundtsTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-playgroundts-playgroundtsTests/Pods-playgroundts-playgroundtsTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C13DE6EA8F70B20F0730B2A2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-playgroundts/Pods-playgroundts-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-playgroundts/Pods-playgroundts-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-playgroundts/Pods-playgroundts-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D93135C9111F943CE6FFC33B /* [CP] Check Pods Manifest.lock */ = {
+		2F014D7E4EBE1502E3818121 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -348,14 +280,65 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-playgroundts-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-playground-playgroundTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EB3B3620C34D273106E8DBFB /* [CP] Check Pods Manifest.lock */ = {
+		5715B514FF855F05CE820695 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-playground-playgroundTests/Pods-playground-playgroundTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-playground-playgroundTests/Pods-playground-playgroundTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-playground-playgroundTests/Pods-playground-playgroundTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		60E546B2688D01CC466F115C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-playground-playgroundTests/Pods-playground-playgroundTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-playground-playgroundTests/Pods-playground-playgroundTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-playground-playgroundTests/Pods-playground-playgroundTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7F27C4646FEF33601B8FC853 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-playground/Pods-playground-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-playground/Pods-playground-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-playground/Pods-playground-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E12F1425CAEB0C8A4EC77BF2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -370,11 +353,28 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-playgroundts-playgroundtsTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-playground-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F815CF3F5EAB365012D21DF5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-playground/Pods-playground-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-playground/Pods-playground-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-playground/Pods-playground-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -403,7 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* playgroundtsTests.m in Sources */,
+				00E356F31AD99517003FC87E /* playgroundTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,7 +421,7 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* playgroundts */;
+			target = 13B07F861A680F5B00A75B9A /* playground */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -429,14 +429,14 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F801E65CA25F59DDBB6B7F53 /* Pods-playgroundts-playgroundtsTests.debug.xcconfig */;
+			baseConfigurationReference = 2CE78CD3EFC2D6BC4A3D2DCF /* Pods-playground-playgroundTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = playgroundtsTests/Info.plist;
+				INFOPLIST_FILE = playgroundTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -450,17 +450,17 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/playgroundts.app/playgroundts";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/playground.app/playground";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 314D7C07011A013AFF9D8BF7 /* Pods-playgroundts-playgroundtsTests.release.xcconfig */;
+			baseConfigurationReference = 370A90E31924ADA16A170953 /* Pods-playground-playgroundTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = playgroundtsTests/Info.plist;
+				INFOPLIST_FILE = playgroundTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -474,19 +474,19 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/playgroundts.app/playgroundts";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/playground.app/playground";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8CD7893CE86D94BAEA7587FB /* Pods-playgroundts.debug.xcconfig */;
+			baseConfigurationReference = 7D1447D2EA4D2B4D4F9FC395 /* Pods-playground.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = playgroundts/Info.plist;
+				INFOPLIST_FILE = playground/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -497,7 +497,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = playgroundts;
+				PRODUCT_NAME = playground;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -506,12 +506,12 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 707E54D61C1A3C54633CB89B /* Pods-playgroundts.release.xcconfig */;
+			baseConfigurationReference = 3995A50522581D4F16E4D92C /* Pods-playground.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = playgroundts/Info.plist;
+				INFOPLIST_FILE = playground/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -522,7 +522,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = playgroundts;
+				PRODUCT_NAME = playground;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -561,7 +561,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 ";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 i386";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -626,7 +626,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 ";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 i386";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -654,7 +654,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "playgroundtsTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "playgroundTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -663,7 +663,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "playgroundts" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "playground" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -672,7 +672,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "playgroundts" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "playground" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

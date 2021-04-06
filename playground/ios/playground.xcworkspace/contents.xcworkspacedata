@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:playgroundts.xcodeproj">
+      location = "group:/Users/maxwolf/workspace/native-component-library/react-native-component-library/playground/ios/playground.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
