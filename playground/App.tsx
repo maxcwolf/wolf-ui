@@ -1,3 +1,3 @@
-import StorybookUiRoot from './storybook/index'
+import { StorybookUi } from './storybook'
 
-export default StorybookUiRoot
+export const App = () => StorybookUi

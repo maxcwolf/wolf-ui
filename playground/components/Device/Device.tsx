@@ -27,10 +27,7 @@ const styles = StyleSheet.create({
 
 export const Device = ({ children }: { children: React.ReactNode }) => {
   return (
-    <View
-      style={styles.deviceWrapper}
-      // style={ { maxWidth: calculatedWidth, width: calculatedWidth, ...(wrapperProps && wrapperProps.style ? wrapperProps.style : {}) } }
-    >
+    <View style={styles.deviceWrapper}>
       <ImageBackground
         style={styles.device}
         source={{ uri: require('./iphone-portrait.png') }}
