@@ -7,7 +7,7 @@
  *  web (styled-system) and mobile (restyle) component librarys
  */
 import { createRestyleFunction } from '@shopify/restyle'
-import { getKeys } from './helpers'
+import { getKeys } from './keys'
 
 const typographySizeProperties = {
   fontSize: true,

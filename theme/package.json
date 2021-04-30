@@ -1,0 +1,12 @@
+{
+  "name": "wolf-ui-theme",
+  "version": "0.0.1",
+  "description": "Theme for Wolf UI",
+  "main": "index.js",
+  "author": "Max Wolf <maxcharleswolf@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@shopify/restyle": "^1.4.0"
+  }
+}

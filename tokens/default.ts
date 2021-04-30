@@ -6,16 +6,36 @@
  *  introduced.
  */
 
-export const palette = {
-  black: '#0B0B0B',
+export const basePalette = {
+  red: '#F4443C',
+  orange: '#F86E21',
+  green: '#52C41A',
+  blueLight: '#3AA3FF',
+  blue: '#005DFF',
+  blueMedium: '#1890FF',
+  yellow: '#FFD21D',
+  pink: '#FF00A1',
+  redLight: '#FBF5F5',
+  orangeLight: '#FFF7E3',
   white: '#FFFFFF',
+  black: '#000000',
+  transparent: 'transparent',
+}
 
-  blue: '#43abda',
-  blueMedium: '#0d8bc0',
-  blueMediumDisabled: '#0d8bc088',
-  grayLight: '#e1e3e5',
-  grayCoolMedium: '#94abbe',
-  grayCoolDark: '#546678',
-  redError: '#ea3a46',
-  text: '#001833',
+export const palette = {
+  ...basePalette,
+  cyan: '#E5F1FF',
+  dark: '#333333',
+  darkMedium: '#666666',
+  darkLight: '#999999',
+  grayMedium: '#CCCCCC',
+  grayLight: '#E5E5E5',
+}
+
+export const darkPalette = {
+  ...basePalette,
+  dark: '#121212',
+  blueDark: '#141D24',
+  orangLight: '#292929',
+  grey: '#dddddd',
 }

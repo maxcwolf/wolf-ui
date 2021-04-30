@@ -10,10 +10,11 @@ import {
   BackgroundColorProps,
 } from '@shopify/restyle'
 
-import { Text } from './Text'
-import { Theme } from '../../theme/default'
+import { Text } from '../../base'
+import { Theme } from '../../../theme/default'
 
 const restyleFunctions = [spacing, border, backgroundColor]
+
 type Props = SpacingProps<Theme> &
   BorderProps<Theme> &
   BackgroundColorProps<Theme> & {
