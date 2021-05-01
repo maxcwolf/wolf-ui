@@ -32,7 +32,8 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "start:fresh": "rm -rf $TMPDIR/metro-* && rm -rf $TMPDIR/haste-map-* && yarn && yarn start --reset-cache",
     "start:superfresh": "watchman watch-del-all && rm -rf node_modules && yarn start:fresh",
-    "prestorybook": "ts-node storybook/setupStories.ts",
+    "load-stories": "ts-node storybook/setupStories.ts",
+    "prestorybook": "yarn load-stories",
     "storybook:web:run": "http-server -p 8008 ./dist-storybook-web -o",
     "storybook:web:build": "build-storybook --config-dir ./.storybook-web --output-dir dist-storybook-web",
     "storybook:server": "start-storybook -p 6006"
@@ -114,14 +115,5 @@
       "json",
       "node"
     ]
-  },
-  "config": {
-    "react-native-storybook-loader": {
-      "searchDir": [
-        "./storybook/stories"
-      ],
-      "pattern": "**/*.stories.js",
-      "outputFile": "./storybook/storyLoader.js"
-    }
   }
 }

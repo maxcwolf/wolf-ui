@@ -9,7 +9,9 @@ export default {
 }
 
 export const Default = () => (
-  <Text color={colorSelect('text')}>{text('text', 'This is a text')}</Text>
+  <Text color={colorSelect('color', 'text')}>
+    {text('text', 'This is a text')}
+  </Text>
 )
 
 storiesOf('Text', module).add('Default', () => <Default />)

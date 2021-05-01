@@ -6,5 +6,6 @@
 export const loadStories = () => {
   require('./stories/Button.stories')
   require('./stories/Welcome.stories')
+  require('./stories/base/Box.stories')
   require('./stories/base/Text.stories')
 }
