@@ -61,6 +61,7 @@ export const theme = createTheme({
 
 export type Theme = typeof theme
 export type Spacing = keyof Theme['spacing']
+export type Color = keyof Theme['colors']
 
 export const darkTheme: Theme = {
   ...theme,

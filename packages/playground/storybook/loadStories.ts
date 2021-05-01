@@ -5,6 +5,6 @@
 
 export const loadStories = () => {
   require('./stories/Button.stories')
-  require('./stories/TextInput.stories')
   require('./stories/Welcome.stories')
+  require('./stories/base/Text.stories')
 }

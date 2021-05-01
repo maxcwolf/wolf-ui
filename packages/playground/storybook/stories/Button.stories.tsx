@@ -5,6 +5,10 @@ import { text } from '@storybook/addon-knobs'
 import { storiesOf } from '@storybook/react-native'
 import Button from '../../components/Button'
 
+export default {
+  title: 'Button',
+}
+
 export const WithText = () => (
   <Button onPress={action('clicked-text')}>
     {text('Button text', 'Hello Button')}
