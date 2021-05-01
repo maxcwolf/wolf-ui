@@ -5,11 +5,36 @@
   "main": "./build/dist/index.js",
   "author": "Max Wolf <maxcharleswolf@gmail.com>",
   "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/components",
+    "packages/playground",
+    "packages/theme",
+    "packages/tokens"
+  ],
+  "nohoist": [
+    "**react**",
+    "**react-native**",
+    "react-native-svg",
+    "react-native-vector-icons",
+    "jetifier",
+    "@restyle/**",
+    "@storybook/**"
+  ],
   "keywords": [
     "component library",
     "mobile",
     "react-native",
     "styled-system",
     "restyle"
-  ]
+  ],
+  "scripts": {
+    "bootstrap": "lerna bootstrap --use-workspaces"
+  },
+  "devDependencies": {
+    "eslint": "^7.25.0",
+    "lerna": "^4.0.0",
+    "prettier": "^2.2.1",
+    "typescript": "^4.2.4"
+  }
 }

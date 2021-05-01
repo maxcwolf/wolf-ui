@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./packages",
+    "paths": {
+      "@wolf-ui/*": ["./*"]
+    }
+  },
+  "references": [
+    { "path": "components" },
+    { "path": "playground" },
+    { "path": "theme" },
+    { "path": "tokens" }
+  ]
+}

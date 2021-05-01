@@ -1,0 +1,14 @@
+{
+  "extends": "../tsconfig.settings.json",
+  "include": ["storybook", "components"],
+  "exclude": [
+    "example",
+    "dist-storybook-web",
+    "node_modules",
+    "ios",
+    "android",
+    "babel.config.js",
+    "metro.config.js",
+    "jest.config.js"
+  ]
+}
