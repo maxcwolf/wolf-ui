@@ -5,6 +5,7 @@ module.exports = {
     'prettier',
     'prettier/@typescript-eslint',
     'prettier/react',
+    'plugin:react-hooks/recommended',
   ],
   parser: 'babel-eslint',
   plugins: ['react', 'react-native'],
@@ -26,5 +27,7 @@ module.exports = {
     'react-native/no-unused-styles': 2,
     'react-native/split-platform-components': 2,
     'react-native/no-inline-styles': 2,
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
   },
 }

@@ -6,8 +6,8 @@ import { StorybookUi } from './storybook'
 
 export const App = () => (
   <SafeAreaProvider>
-    <ThemeProvider theme={theme}>
-      <StorybookUi />
-    </ThemeProvider>
+    {/* <ThemeProvider theme={theme}> */}
+    <StorybookUi />
+    {/* </ThemeProvider> */}
   </SafeAreaProvider>
 )

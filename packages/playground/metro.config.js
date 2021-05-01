@@ -8,26 +8,11 @@
  *
  * https://github.com/Carimus/metro-symlinked-deps
  * https://medium.com/@huntie/a-concise-guide-to-configuring-react-native-with-yarn-workspaces-d7efa71b6906
+ * https://github.com/facebook/react/issues/13991#issuecomment-830308729
  */
-
-const path = require('path')
-const fs = require('fs')
-const blacklist = require('metro-config/src/defaults/blacklist')
-const escape = require('escape-string-regexp')
+const Resolver = require('metro-resolver')
 const getWorkspaces = require('get-yarn-workspaces')
-
-const root = path.resolve(__dirname, '..')
-const package = JSON.parse(
-  fs.readFileSync(path.join(root, 'package.json'), 'utf8'),
-)
-
-const modules = [
-  '@babel/runtime',
-  ...Object.keys({
-    ...package.dependencies,
-    ...package.peerDependencies,
-  }),
-]
+const path = require('path')
 const {
   applyConfigForLinkedDependencies,
 } = require('@carimus/metro-symlinked-deps')
@@ -41,20 +26,6 @@ function getConfig(appDir) {
   ]
 
   const projectConfig = {
-    projectRoot: __dirname,
-    watchFolders: [root],
-
-    resolver: {
-      blacklistRE: blacklist([
-        new RegExp(`^${escape(path.join(root, 'node_modules'))}\\/.*$`),
-      ]),
-
-      extraNodeModules: modules.reduce((acc, name) => {
-        acc[name] = path.join(__dirname, 'node_modules', name)
-        return acc
-      }, {}),
-    },
-
     watchFolders,
     transformer: {
       getTransformOptions: async () => ({
@@ -64,14 +35,27 @@ function getConfig(appDir) {
         },
       }),
     },
-    // resolver: {
-    //   // Resolve these module imports to the locally-installed version
-    //   extraNodeModules: {
-    //     react: path.resolve(appDir, 'node_modules', 'react'),
-    //     'react-native': path.resolve(appDir, 'node_modules', 'react-native'),
-    //     'core-js': path.resolve(appDir, 'node_modules', 'core-js'),
-    //   },
-    // },
+    resolver: {
+      // This was added to enable Metro to handle the symlinks that yarn
+      // workspaces places in the node_modules folder.
+      extraNodeModules: new Proxy(
+        {},
+        {
+          get: (target, name) => {
+            return path.join(__dirname, `node_modules/${name}`)
+          },
+        },
+      ),
+      // Make sure we use the local copy of react and react-native
+      resolveRequest: (context, realModuleName, platform, moduleName) => {
+        const clearContext = { ...context, resolveRequest: undefined }
+        const module =
+          moduleName === 'react' || moduleName === 'react-native'
+            ? path.join(__dirname, 'node_modules', realModuleName)
+            : realModuleName
+        return Resolver.resolve(clearContext, module, platform)
+      },
+    },
   }
 
   return applyConfigForLinkedDependencies(projectConfig, {

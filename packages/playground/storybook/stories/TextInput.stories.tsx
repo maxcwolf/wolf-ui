@@ -1,9 +1,9 @@
 import React from 'react'
 import { storiesOf, addDecorator } from '@storybook/react-native'
-import { TextInput, ThemeProvider } from '@wolf-ui/components'
+import { Text, ThemeProvider } from '@wolf-ui/components'
 
-const Default = () => <TextInput />
+const Default = () => <Text color="warn">This is a text</Text>
 
-storiesOf('TextInput', module)
+storiesOf('Text', module)
   // .addDecorator((story) => <ThemeProvider>{story()}</ThemeProvider>)
   .add('Default', () => <Default />)
