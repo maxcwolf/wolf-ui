@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { View, StyleSheet, TouchableOpacity } from 'react-native'
 import { useTheme } from '@shopify/restyle'
 import { Theme } from '@wolf-ui/theme'
-import { getIconComponent, IconType } from '../../helpers/icon'
+import { getIconComponent, IconType, iconTypes } from '../../helpers/icon'
 
 export interface IconProps {
   name: string
@@ -17,13 +17,6 @@ export interface IconProps {
   ratio?: number
 }
 
-export const Icon = () => (
-  <View>
-    <TouchableOpacity>Delete Me!</TouchableOpacity>
-  </View>
-)
-
-/** 
 export const Icon: FC<IconProps> = (props) => {
   const theme = useTheme<Theme>()
 
@@ -84,7 +77,7 @@ export const Icon: FC<IconProps> = (props) => {
             {...{
               name,
               size,
-              color,
+              color: theme.colors[color],
             }}
           />
         </TouchableOpacity>
@@ -93,11 +86,10 @@ export const Icon: FC<IconProps> = (props) => {
           {...{
             name,
             size,
-            color,
+            color: theme.colors[color],
           }}
         />
       )}
     </View>
   )
 }
-*/

@@ -12,6 +12,22 @@ import OcticonIcon from 'react-native-vector-icons/Octicons'
 import SimpleLineIcon from 'react-native-vector-icons/SimpleLineIcons'
 import ZocialIcon from 'react-native-vector-icons/Zocial'
 
+export const iconTypes: IconType[] = [
+  'ant-design',
+  'entypo',
+  'evilicon',
+  'ionicon',
+  'feather',
+  'font-awesome',
+  'fontisto',
+  'foundation',
+  'material',
+  'material-community',
+  'octicon',
+  'simple-line-icon',
+  'zocial',
+]
+
 export type IconType =
   | 'ant-design'
   | 'entypo'
