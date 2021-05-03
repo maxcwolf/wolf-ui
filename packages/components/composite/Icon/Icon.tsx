@@ -8,7 +8,7 @@ export interface IconProps {
   name: string
   size?: number
   color?: string
-  bgColor?: string
+  bg?: string
   type?: IconType
   onPress?: () => void
   onLongPress?: () => void
@@ -16,6 +16,10 @@ export interface IconProps {
   isRounded?: boolean
   ratio?: number
 }
+
+/**
+ * @todo Export all possible icon name values and types.
+ */
 
 export const Icon: FC<IconProps> = (props) => {
   const theme = useTheme<Theme>()
@@ -25,7 +29,7 @@ export const Icon: FC<IconProps> = (props) => {
     name,
     size = theme.borderRadii.icon * 2,
     color = theme.colors.black,
-    bgColor = theme.colors.transparent,
+    bg = theme.colors.transparent,
     onPress,
     onLongPress,
     isDisabled = false,
@@ -35,7 +39,7 @@ export const Icon: FC<IconProps> = (props) => {
 
   const styles = StyleSheet.create({
     container: {
-      backgroundColor: bgColor,
+      backgroundColor: theme.colors[bg],
       width: size * ratio,
       height: size * ratio,
       justifyContent: 'center',
