@@ -3,7 +3,11 @@ import { storiesOf } from '@storybook/react-native'
 import { action } from '@storybook/addon-actions'
 import { text, boolean, number } from '@storybook/addon-knobs'
 import { Icon } from '@wolf-ui/components'
-import { colorSelect, iconTypeSelect } from '../../knobs/select'
+import {
+  colorSelect,
+  iconSvgNameSelect,
+  iconTypeSelect,
+} from '../../knobs/select'
 
 export default {
   title: 'Icon',
@@ -11,7 +15,7 @@ export default {
 
 export const Default = () => (
   <Icon
-    type={iconTypeSelect('type', 'entypo')}
+    type={iconTypeSelect('entypo')}
     bg={colorSelect('bg', 'transparent')}
     name="eye"
     color={colorSelect('color', 'primary')}
@@ -21,18 +25,18 @@ export const Default = () => (
 
 export const Svg = () => (
   <Icon
-    type={iconTypeSelect('type', 'svg')}
-    name="add" // TODO: Add icon name select util
+    type={iconTypeSelect('svg')}
+    name={iconSvgNameSelect('add')}
     bg={colorSelect('bg', 'white')}
     color={colorSelect('color', 'black')}
-    size={number('size', 50)}
+    size={number('size', 50)} // TODO: Add sizing to theme
   />
 )
 
 export const Touchable = () => (
   <Icon
     onPress={action('Icon pressed')}
-    type={iconTypeSelect('type', 'entypo')}
+    type={iconTypeSelect('entypo')}
     name={'eye'}
     color={colorSelect('color', 'primary')}
   />
@@ -42,7 +46,7 @@ export const Rounded = () => (
   <Icon
     isRounded={boolean('isRounded', true)}
     bg={colorSelect('bg', 'primary')}
-    type={iconTypeSelect('type', 'entypo')}
+    type={iconTypeSelect('entypo')}
     name={'eye'}
     color={colorSelect('color', 'white')}
   />
@@ -53,7 +57,7 @@ export const Disabled = () => (
     isDisabled={boolean('isDisabled', true)}
     isRounded={boolean('isRounded', false)}
     bg={colorSelect('bg', 'transparent')}
-    type={iconTypeSelect('type', 'entypo')}
+    type={iconTypeSelect('entypo')}
     name={'eye'}
     color={colorSelect('color', 'text')}
   />

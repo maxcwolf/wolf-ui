@@ -111,4 +111,12 @@ export type IconVectorName =
   | keyof typeof fontAwesomeIcons
   | keyof typeof simpleIcons
 
+export const iconSvgNames: IconSvgName[] = [
+  'add',
+  'angle-up',
+  'angle-down',
+  'angle-right',
+  'angle-left',
+]
+
 export type IconName = IconSvgName | IconVectorName
