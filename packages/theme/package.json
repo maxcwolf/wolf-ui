@@ -14,6 +14,11 @@
     "type": "git",
     "url": "git+https://github.com/maxcwolf/react-native-component-library.git"
   },
+  "workspaces": {
+    "nohoist": [
+      "@restyle/**"
+    ]
+  },
   "dependencies": {
     "@shopify/restyle": "^1.4.0",
     "@wolf-ui/tokens": "0.0.1"

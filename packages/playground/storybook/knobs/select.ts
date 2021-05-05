@@ -1,6 +1,6 @@
 import { select } from '@storybook/addon-knobs'
 import { theme, Color } from '@wolf-ui/theme'
-import { IconType, iconTypes } from '@wolf-ui/components'
+import { IconType, IconName, iconTypes } from '@wolf-ui/components'
 
 export const colorSelect = (
   name: string = 'colors',
@@ -14,6 +14,6 @@ export const colorSelect = (
   )
 
 export const iconTypeSelect = (
-  name: string = 'name',
+  name: string = 'type',
   initialValue: IconType,
 ): IconType => select<IconType>(name, iconTypes, initialValue)

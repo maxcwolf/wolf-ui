@@ -1,6 +1,5 @@
 import React, { forwardRef, ReactNode } from 'react'
-import { useTheme } from '@shopify/restyle'
-import { Theme } from '@wolf-ui/theme'
+import { Theme, useTheme } from '@wolf-ui/theme'
 import { Box, Flex, Text, TextInput, TextInputProps } from '../../base'
 import { HAIRLINE_WIDTH } from '../../helpers/constants'
 

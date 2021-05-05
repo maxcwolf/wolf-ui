@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react-native'
 import { action } from '@storybook/addon-actions'
-import { text, boolean } from '@storybook/addon-knobs'
+import { text, boolean, number } from '@storybook/addon-knobs'
 import { Icon } from '@wolf-ui/components'
 import { colorSelect, iconTypeSelect } from '../../knobs/select'
 
@@ -13,9 +13,19 @@ export const Default = () => (
   <Icon
     type={iconTypeSelect('type', 'entypo')}
     bg={colorSelect('bg', 'transparent')}
-    name={text('name', 'eye')}
+    name="eye"
     color={colorSelect('color', 'primary')}
     isRounded={boolean('isRounded', false)}
+  />
+)
+
+export const Svg = () => (
+  <Icon
+    type={iconTypeSelect('type', 'svg')}
+    name="add" // TODO: Add icon name select util
+    bg={colorSelect('bg', 'white')}
+    color={colorSelect('color', 'black')}
+    size={number('size', 50)}
   />
 )
 
@@ -55,6 +65,7 @@ export const PasswordInput = () => (
 
 storiesOf('Icon', module)
   .add('Default', () => <Default />)
+  .add('Svg', () => <Svg />)
   .add('Touchable', () => <Touchable />)
   .add('Rounded', () => <Rounded />)
   .add('Disabled', () => <Disabled />)

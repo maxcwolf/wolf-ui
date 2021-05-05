@@ -1,6 +1,6 @@
 {
   "extends": "../tsconfig.settings.json",
-  "include": ["base", "composite", "helpers", "provider", "index.ts"],
+  "include": ["base", "composite", "helpers", "../theme/provider", "index.ts"],
   "exclude": [
     "example",
     "node_modules",

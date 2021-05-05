@@ -1,11 +1,16 @@
 import React, { FC } from 'react'
 import { View, StyleSheet, TouchableOpacity } from 'react-native'
-import { useTheme } from '@shopify/restyle'
-import { Theme } from '@wolf-ui/theme'
-import { getIconComponent, IconType, iconTypes } from '../../helpers/icon'
+import { Theme, useTheme } from '@wolf-ui/theme'
+import {
+  getIconComponent,
+  IconType,
+  IconName,
+  iconTypes,
+} from '../../helpers/icon'
+import { Flex } from '../../base'
 
 export interface IconProps {
-  name: string
+  name: IconName
   size?: number
   color?: string
   bg?: string
@@ -61,7 +66,7 @@ export const Icon: FC<IconProps> = (props) => {
 
   const IconComponent = getIconComponent(type)
   return (
-    <View
+    <Flex
       style={[
         styles.container,
         isRounded && styles.rounded,
@@ -94,6 +99,6 @@ export const Icon: FC<IconProps> = (props) => {
           }}
         />
       )}
-    </View>
+    </Flex>
   )
 }

@@ -8,14 +8,17 @@ import {
   addDecorator,
 } from '@storybook/react-native'
 import { withKnobs } from '@storybook/addon-knobs'
-import { ThemeProvider } from '@wolf-ui/components'
+// import { ThemeProvider } from '@wolf-ui/components'
+import { ThemeProvider, theme } from '@wolf-ui/theme'
 import { loadStories } from './loadStories'
 
 import './rn-addons'
 
 // enables knobs for all stories
 addDecorator(withKnobs)
-addDecorator((storyFn: any) => <ThemeProvider>{storyFn()}</ThemeProvider>)
+addDecorator((storyFn: any) => (
+  <ThemeProvider theme={theme}>{storyFn()}</ThemeProvider>
+))
 
 // import stories
 configure(() => {

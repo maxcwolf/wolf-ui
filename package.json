@@ -26,7 +26,8 @@
     "mobile",
     "react-native",
     "styled-system",
-    "restyle"
+    "restyle",
+    "theme-specification"
   ],
   "scripts": {
     "bootstrap": "lerna bootstrap --use-workspaces"
