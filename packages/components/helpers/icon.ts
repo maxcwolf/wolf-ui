@@ -100,6 +100,12 @@ export type IconSvgName =
   | 'angle-down'
   | 'angle-right'
   | 'angle-left'
+  | 'checkmark'
+  | 'close'
+  | 'edit'
+  | 'ellipsis'
+  | 'search'
+  | 'settings'
 
 export type IconVectorName =
   | keyof typeof entypoIcons // TODO: clear up and add icon names
@@ -117,6 +123,12 @@ export const iconSvgNames: IconSvgName[] = [
   'angle-down',
   'angle-right',
   'angle-left',
+  'checkmark',
+  'close',
+  'edit',
+  'ellipsis',
+  'search',
+  'settings',
 ]
 
 export type IconName = IconSvgName | IconVectorName
