@@ -1,17 +1,35 @@
+import React from 'react'
 import {
   ActivityIndicator as RNActivityIndicator,
   ActivityIndicatorProps as RNActivityIndicatorProps,
+  StyleProp,
+  ViewStyle,
 } from 'react-native'
+import { useTheme } from '@shopify/restyle'
+import { Color, Theme } from '@wolf-ui/theme'
 
-import { createRestyleComponent, color, ColorProps } from '@shopify/restyle'
-import { Theme } from '@wolf-ui/theme'
+export const ActivityIndicator = ({
+  animating,
+  color,
+  hidesWhenStopped,
+  size,
+  style,
+}: {
+  animating?: boolean
+  color?: Color
+  hidesWhenStopped?: boolean
+  size?: number | 'small' | 'large'
+  style?: StyleProp<ViewStyle>
+}) => {
+  const theme = useTheme<Theme>()
 
-const restyleFunctions = [color]
-
-export type ActivityIndicatorProps = ColorProps<Theme> &
-  RNActivityIndicatorProps
-
-export const ActivityIndicator = createRestyleComponent<
-  ActivityIndicatorProps,
-  Theme
->(restyleFunctions, RNActivityIndicator)
+  return (
+    <RNActivityIndicator
+      color={theme.colors[color || 'text']}
+      animating={animating}
+      hidesWhenStopped={hidesWhenStopped}
+      size={size}
+      style={style}
+    />
+  )
+}
