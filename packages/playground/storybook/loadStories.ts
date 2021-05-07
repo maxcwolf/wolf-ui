@@ -4,6 +4,7 @@
 ///////////////////
 
 export const loadStories = () => {
+  require('./stories/base/ActivityIndicator.stories')
   require('./stories/base/Box.stories')
   require('./stories/base/Text.stories')
   require('./stories/composite/Icon.stories')
