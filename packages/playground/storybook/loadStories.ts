@@ -8,6 +8,7 @@ export const loadStories = () => {
   require('./stories/base/Box.stories')
   require('./stories/base/Text.stories')
   require('./stories/composite/Icon.stories')
+  require('./stories/composite/InputText.stories')
   require('./stories/sample/Button.stories')
   require('./stories/sample/Welcome.stories')
 }
