@@ -28,6 +28,7 @@ export interface IconProps {
 
 export const Icon: FC<IconProps> = (props) => {
   const theme = useTheme<Theme>()
+  console.log(theme)
 
   const {
     type,

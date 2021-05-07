@@ -162,7 +162,7 @@ export interface IconSvgProps {
 }
 
 export const IconSvg: FC<IconSvgProps> = ({
-  name,
+  name, // TODO: Allow custom svgxml as prop
   size = 40,
   color = 'black',
 }) => {

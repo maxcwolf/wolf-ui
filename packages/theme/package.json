@@ -16,7 +16,12 @@
   },
   "workspaces": {
     "nohoist": [
-      "@restyle/**"
+      "react",
+      "react-native",
+      "react-native-vector-icons",
+      "react-native-svg",
+      "@storybook/react-native",
+      "@shopify/restyle"
     ]
   },
   "dependencies": {
