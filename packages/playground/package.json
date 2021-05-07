@@ -47,7 +47,7 @@
       "react-native-vector-icons",
       "react-native-svg",
       "jetifier",
-      "@restyle/**"
+      "@storybook/**"
     ]
   },
   "dependencies": {

@@ -1,4 +1,3 @@
-// if you use expo remove this line
 import { AppRegistry } from 'react-native'
 import React from 'react'
 
@@ -8,17 +7,17 @@ import {
   addDecorator,
 } from '@storybook/react-native'
 import { withKnobs } from '@storybook/addon-knobs'
-// import { ThemeProvider } from '@wolf-ui/components'
 import { ThemeProvider, theme } from '@wolf-ui/theme'
 import { loadStories } from './loadStories'
 
 import './rn-addons'
 
-// enables knobs for all stories
-addDecorator(withKnobs)
+// allows theme value access for all stories
 addDecorator((storyFn: any) => (
   <ThemeProvider theme={theme}>{storyFn()}</ThemeProvider>
 ))
+// enables knobs for all stories
+addDecorator(withKnobs)
 
 // import stories
 configure(() => {
