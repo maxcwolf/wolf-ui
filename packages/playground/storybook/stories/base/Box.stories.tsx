@@ -1,14 +1,23 @@
 import React from 'react'
+import { number } from '@storybook/addon-knobs'
 import { storiesOf } from '@storybook/react-native'
 import { Box, Text } from '@wolf-ui/components'
-import { colorSelect } from '../../knobs/select'
+import { colorSelect, spacingSelect } from '../../knobs/select'
 
 export default {
   title: 'Box',
 }
 
 export const Default = () => (
-  <Box bg={colorSelect('bg', 'primary')} m={'l'} width={100} height={100} />
+  <Box
+    bg={colorSelect('bg', 'primary')}
+    m={spacingSelect('m', 'l')}
+    p={spacingSelect('p', 's')}
+    width={number('width', 100)}
+    height={number('height', 100)}
+    borderWidth={1}
+    borderColor={colorSelect('borderColor', 'inputBorder')}
+  />
 )
 
 export const WithText = () => (

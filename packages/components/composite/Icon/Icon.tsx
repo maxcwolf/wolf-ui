@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
-import { View, StyleSheet, TouchableOpacity } from 'react-native'
-import { Theme, useTheme } from '@wolf-ui/theme'
+import { StyleSheet, TouchableOpacity } from 'react-native'
+import { useTheme } from '@shopify/restyle'
+import { Theme } from '@wolf-ui/theme'
 import {
   getIconComponent,
   IconType,
@@ -28,7 +29,6 @@ export interface IconProps {
 
 export const Icon: FC<IconProps> = (props) => {
   const theme = useTheme<Theme>()
-  console.log(theme)
 
   const {
     type,

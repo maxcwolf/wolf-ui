@@ -18,7 +18,6 @@
     "react-native-svg",
     "react-native-vector-icons",
     "jetifier",
-    "@shopify/restyle",
     "@storybook/**"
   ],
   "keywords": [

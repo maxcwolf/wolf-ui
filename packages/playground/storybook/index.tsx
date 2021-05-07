@@ -7,7 +7,8 @@ import {
   addDecorator,
 } from '@storybook/react-native'
 import { withKnobs } from '@storybook/addon-knobs'
-import { ThemeProvider, theme } from '@wolf-ui/theme'
+import { ThemeProvider } from '@wolf-ui/components'
+import { theme } from '@wolf-ui/theme'
 import { loadStories } from './loadStories'
 
 import './rn-addons'

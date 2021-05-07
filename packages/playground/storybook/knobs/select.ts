@@ -8,17 +8,12 @@ import {
   iconSvgNames,
 } from '@wolf-ui/components'
 
-export const colorSelect = (name: string, initialValue: Color): Color => {
-  const color = select<Color>(
+export const colorSelect = (name: string, initialValue: Color): Color =>
+  select<Color>(
     name,
     Object.keys(theme.colors).map((key): any => key.toString()),
     initialValue,
   )
-
-  console.log('color: ', color, '; typeof color: ', typeof color)
-
-  return color
-}
 
 export const iconTypeSelect = (initialValue: IconType): IconType =>
   select<IconType>('type', iconTypes, initialValue)
