@@ -1,5 +1,6 @@
+const storiesListForWeb = require('./storiesList')
 module.exports = {
-  stories: ['../storybook/stories/index.js', '../storybook/stories/index.ts'],
+  stories: storiesListForWeb,
   webpackFinal: async (config) => {
     config.resolve.alias = {
       ...(config.resolve.alias || {}),

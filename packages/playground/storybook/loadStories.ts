@@ -12,3 +12,4 @@ export const loadStories = () => {
   require('./stories/sample/Button.stories')
   require('./stories/sample/Welcome.stories')
 }
+
