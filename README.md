@@ -4,9 +4,9 @@ A thematic and type-safe React Native component library and Storybook playground
 
 ## Packages
 
-[@maxcwolf/ui-react-native](/packages/ui-react-native/README.md)
-[@maxcwolf/ui-tokens](/packages/ui-tokens/README.md)
-[@maxcwolf/playground](/packages/playground/README.md)
+- [@maxcwolf/ui-react-native](/packages/ui-react-native/README.md)
+- [@maxcwolf/ui-tokens](/packages/ui-tokens/README.md)
+- [@maxcwolf/playground](/packages/playground/README.md)
 
 ## Design Tokens
 
