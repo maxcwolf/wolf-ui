@@ -1,0 +1,1 @@
+{"version":3,"sources":["constants.ts"],"names":["StyleSheet","HAIRLINE_WIDTH","hairlineWidth"],"mappings":"AAAA,SAASA,UAAT,QAA2B,cAA3B;AAEA,OAAO,MAAMC,cAAc,GAAGD,UAAU,CAACE,aAAlC","sourcesContent":["import { StyleSheet } from 'react-native'\n\nexport const HAIRLINE_WIDTH = StyleSheet.hairlineWidth\n"]}

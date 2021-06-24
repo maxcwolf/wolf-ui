@@ -1,6 +1,6 @@
-# Vision UI Native Component Playground
+# Wolf UI Native Component Playground
 
-The mobile playground is an on device Storybook for development of the Vision UI React Native library components. It is currently meant for development purposes only.
+The mobile playground is an on device Storybook for development of the Wolf UI React Native library components. It is currently meant for development purposes only.
 
 ## 🗂️ Table of Contents
 

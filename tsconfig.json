@@ -4,7 +4,8 @@
     "baseUrl": ".",
     "paths": {
       "@maxcwolf/ui-react-native": ["./packages/ui-react-native"],
-      "@maxcwolf/ui-tokens": ["./packages/ui-tokens"]
+      "@maxcwolf/ui-tokens": ["./packages/ui-tokens"],
+      "@maxcwolf/playground": ["./packages/playground"]
     },
     "outDir": "typescript",
     "composite": true,

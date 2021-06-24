@@ -1,0 +1,1 @@
+{"version":3,"sources":["keys.ts"],"names":["getKeys","object","Object","keys"],"mappings":"AAAA,OAAO,MAAMA,OAAO,GAAOC,MAAJ,IAAkBC,MAAM,CAACC,IAAP,CAAYF,MAAZ,CAAlC","sourcesContent":["export const getKeys = <T>(object: T) => Object.keys(object) as (keyof T)[]\n"]}
