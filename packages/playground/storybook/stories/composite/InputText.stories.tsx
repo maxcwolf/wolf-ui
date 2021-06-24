@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react-native'
-import { InputText } from '@wolf-ui/components'
+import { InputText } from '@maxcwolf/ui-react-native'
 
 export default {
   title: 'InputText',
@@ -8,7 +8,7 @@ export default {
 
 export const Default = () => <InputText label="Label" />
 
-export const IsPassword = () => <InputText label="Password" isPassword />
+export const IsPassword = () => <InputText isPassword label="Password" />
 
 export const NoLabel = () => <InputText />
 

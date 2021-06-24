@@ -1,22 +1,15 @@
 import { AppRegistry } from 'react-native'
 import React from 'react'
 
-import {
-  getStorybookUI,
-  configure,
-  addDecorator,
-} from '@storybook/react-native'
+import { getStorybookUI, configure, addDecorator } from '@storybook/react-native'
 import { withKnobs } from '@storybook/addon-knobs'
-import { ThemeProvider } from '@wolf-ui/components'
-import { theme } from '@wolf-ui/theme'
-import { loadStories } from './loadStories'
+import { ThemeProvider, themeDxm } from '@maxcwolf/ui-react-native'
+import { loadStories } from './load-stories'
 
 import './rn-addons'
 
 // allows theme value access for all stories
-addDecorator((storyFn: any) => (
-  <ThemeProvider theme={theme}>{storyFn()}</ThemeProvider>
-))
+addDecorator((storyFn: any) => <ThemeProvider theme={themeDxm}>{storyFn()}</ThemeProvider>)
 // enables knobs for all stories
 addDecorator(withKnobs)
 

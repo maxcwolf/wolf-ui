@@ -1,14 +1,19 @@
 {
-  "extends": "../tsconfig.settings.json",
-  "include": ["storybook", "components"],
+  "extends": "../../tsconfig",
+  "compilerOptions": {
+    "outDir": "./lib/typescript",
+    "module": "commonjs"
+  },
+  "include": ["storybook", "components", "App.tsx"],
   "exclude": [
     "example",
+    "scripts",
     "dist-storybook-web",
     "node_modules",
     "ios",
     "android",
     "babel.config.js",
-    "metro.config.js",
-    "jest.config.js"
-  ]
+    "metro.config.js"
+  ],
+  "references": [{ "path": "../ui-react-native" }]
 }

@@ -1,0 +1,27 @@
+{
+  "name": "@maxcwolf/ui-tokens",
+  "version": "0.1.0-alpha.1",
+  "description": "Design Tokens for Wolf UI",
+  "author": "Max Wolf <maxcharleswolf@gmail.com>",
+  "license": "<none>",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "/lib"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "prepare": "yarn build"
+  },
+  "devDependencies": {
+    "typescript": "^4.2.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maxcwolf/wolf-ui.git",
+    "directory": "packages/ui-tokens"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
+}

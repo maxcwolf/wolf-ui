@@ -1,9 +1,0 @@
-{
-  "name": "@wolf-ui/tokens",
-  "version": "0.0.1",
-  "description": "Design Tokens for Wolf UI",
-  "main": "index.ts",
-  "author": "Max Wolf <maxcharleswolf@gmail.com>",
-  "license": "MIT",
-  "private": true
-}

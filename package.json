@@ -1,25 +1,25 @@
 {
   "name": "wolf-ui",
-  "version": "0.0.1",
-  "description": "Design System and Component Library for React Native",
+  "description": "Design System and Component Library for React & React Native",
   "main": "./build/dist/index.js",
   "author": "Max Wolf <maxcharleswolf@gmail.com>",
-  "license": "MIT",
+  "license": "<none>",
   "private": true,
-  "workspaces": [
-    "packages/components",
-    "packages/playground",
-    "packages/theme",
-    "packages/tokens"
-  ],
-  "nohoist": [
-    "**react**",
-    "**react-native**",
-    "react-native-svg",
-    "react-native-vector-icons",
-    "jetifier",
-    "@storybook/**"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/react",
+      "**/react/**",
+      "**/react-native",
+      "**/react-native/**",
+      "react-native-svg",
+      "react-native-vector-icons",
+      "jetifier",
+      "**/@maxcwolf/**"
+    ]
+  },
   "keywords": [
     "component library",
     "mobile",
@@ -29,12 +29,31 @@
     "theme-specification"
   ],
   "scripts": {
-    "bootstrap": "lerna bootstrap --use-workspaces"
+    "build:ui-react-native": "yarn workspace @maxcwolf/ui-react-native prepare",
+    "prepare": "husky install",
+    "lint": "eslint . --fix --ext .js,.jsx,.ts,.tsx",
+    "typecheck": "tsc --noEmit --composite false",
+    "prettier": "prettier --check packages/**/*.tsx --write",
+    "prerelease": "lerna run clean",
+    "release": "lerna publish",
+    "version:prerelease": "lerna version prerelease --no-push",
+    "ios": "yarn workspace @maxcwolf/playground ios",
+    "android": "yarn workspace @maxcwolf/playground android"
   },
   "devDependencies": {
+    "@react-native-community/eslint-config": "^2.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.24.0",
+    "@typescript-eslint/parser": "^4.24.0",
     "eslint": "^7.25.0",
+    "eslint-plugin-import": "^2.22.1",
+    "husky": "^6.0.0",
     "lerna": "^4.0.0",
+    "lint-staged": "^11.0.0",
     "prettier": "^2.2.1",
     "typescript": "^4.2.4"
+  },
+  "resolutions": {
+    "react": "~17.0.2",
+    "react-native": "~0.64.2"
   }
 }

@@ -2,7 +2,7 @@
 
 ## Organization
 
-There should be a `.stories.tsx` file for each component from `@wolf-ui/components`. The directory structure should match that of the `/components` directory in that package.
+There should be a `.stories.tsx` file for each component from `@maxcwolf/ui-react-native`. The directory structure should match that of the `/components` directory in that package.
 
 Each `.stories.tsx` file should contain at least one "default" story. This is the story can be thought of an individual component playground and should have knobs for most of the style props so that a user can test out the component states on the fly by changing the knobs.
 

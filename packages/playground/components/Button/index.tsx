@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { Text, TouchableOpacity, StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
@@ -18,9 +18,9 @@ export const styles = StyleSheet.create({
   },
 })
 
-export default function Button({ onPress, children }: any) {
+export const Button = ({ children }: { children: ReactNode }): JSX.Element => {
   return (
-    <TouchableOpacity style={styles.button} onPress={onPress}>
+    <TouchableOpacity style={styles.button}>
       <Text style={styles.text}>{children}</Text>
     </TouchableOpacity>
   )

@@ -60,3 +60,5 @@ buck-out/
 
 # Storybook
 dist-storybook-web
+
+yarn-error.log

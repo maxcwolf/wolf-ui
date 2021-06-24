@@ -1,7 +1,7 @@
-const storiesListForWeb = require('./storiesList')
+const storiesListForWeb = require('./stories-list')
 module.exports = {
   stories: storiesListForWeb,
-  webpackFinal: async (config) => {
+  webpackFinal: async config => {
     config.resolve.alias = {
       ...(config.resolve.alias || {}),
       // Transform all direct `react-native` imports to `react-native-web`
@@ -14,9 +14,7 @@ module.exports = {
     }
 
     // handle SVG support inside Storybook
-    const fileLoaderRule = config.module.rules.find((rule) =>
-      rule.test.test('.svg'),
-    )
+    const fileLoaderRule = config.module.rules.find(rule => rule.test.test('.svg'))
     fileLoaderRule.exclude = /\.svg$/
     config.module.rules.push({
       test: /\.svg$/,
@@ -24,10 +22,7 @@ module.exports = {
     })
 
     // mutate babel-loader
-    config.module.rules[0].use[0].options.plugins.push([
-      'react-native-web',
-      { commonjs: true },
-    ])
+    config.module.rules[0].use[0].options.plugins.push(['react-native-web', { commonjs: true }])
     // console.dir(config, { depth: null });
     return config
   },

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { View, StyleSheet, ImageBackground } from 'react-native'
 
 const styles = StyleSheet.create({
@@ -25,13 +25,10 @@ const styles = StyleSheet.create({
   },
 })
 
-export const Device = ({ children }: { children: React.ReactNode }) => {
+export const Device = ({ children }: { children: ReactNode }): JSX.Element => {
   return (
     <View style={styles.deviceWrapper}>
-      <ImageBackground
-        style={styles.device}
-        source={{ uri: require('./iphone-portrait.png') }}
-      >
+      <ImageBackground source={{ uri: require('./iphone-portrait.png') }} style={styles.device}>
         <View style={styles.screen}>{children}</View>
       </ImageBackground>
     </View>
