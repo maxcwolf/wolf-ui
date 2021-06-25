@@ -1,0 +1,27 @@
+name: Publish
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+          registry-url: 'https://npm.pkg.github.com'
+      - name: Set release notes tag
+        run: |
+          export RELEASE_NAME_VERSION="${{ github.event.release.name }}"
+          echo "RELEASE_NAME_VERSION=${RELEASE_NAME_VERSION}" >> $GITHUB_ENV
+      - name: Setup
+        run: |
+          yarn
+      - name: Publish
+        run: |
+          yarn lerna publish from-package --yes
+        env:
+          NODE_AUTH_TOKEN: ${{ github.token }}
