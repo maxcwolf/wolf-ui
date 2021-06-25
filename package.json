@@ -3,7 +3,7 @@
   "description": "Design System and Component Library for React & React Native",
   "main": "./build/dist/index.js",
   "author": "Max Wolf <maxcharleswolf@gmail.com>",
-  "license": "<none>",
+  "license": "MIT",
   "private": true,
   "workspaces": {
     "packages": [

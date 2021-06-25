@@ -3,7 +3,7 @@
   "version": "0.1.0-alpha.2",
   "description": "Design Tokens for Wolf UI",
   "author": "Max Wolf <maxcharleswolf@gmail.com>",
-  "license": "<none>",
+  "license": "MIT",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [

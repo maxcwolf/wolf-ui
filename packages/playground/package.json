@@ -4,7 +4,7 @@
   "description": "Development playground for the Wolf UI React Native components",
   "author": "Max Wolf <maxcharleswolf@gmail.com>",
   "homepage": "https://github.com/maxcwolf/react-native-component-library#readme",
-  "license": "<none>",
+  "license": "MIT",
   "main": "index.ts",
   "engines": {
     "node": "14"
