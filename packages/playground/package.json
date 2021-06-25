@@ -1,6 +1,6 @@
 {
   "name": "@maxcwolf/playground",
-  "version": "0.0.1-alpha.3",
+  "version": "0.1.0-alpha.2",
   "description": "Development playground for the Wolf UI React Native components",
   "author": "Max Wolf <maxcharleswolf@gmail.com>",
   "homepage": "https://github.com/maxcwolf/react-native-component-library#readme",
@@ -42,7 +42,7 @@
     "storybook:server": "start-storybook -p 6006"
   },
   "dependencies": {
-    "@maxcwolf/ui-react-native": "^0.1.0-alpha.1",
+    "@maxcwolf/ui-react-native": "^0.1.0-alpha.2",
     "react": "^17.0.2",
     "react-native": "0.64.2",
     "react-native-svg": "^12.1.1",

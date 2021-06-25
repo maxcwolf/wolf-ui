@@ -1,6 +1,6 @@
 {
   "name": "@maxcwolf/ui-react-native",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0-alpha.2",
   "description": "> TODO: description",
   "author": "Max Wolf <maxcharleswolf@gmail.com>",
   "homepage": "https://github.com/maxcwolf/react-native-component-library#readme",
@@ -21,7 +21,7 @@
     "node": "14"
   },
   "dependencies": {
-    "@maxcwolf/ui-tokens": "0.1.0-alpha.1",
+    "@maxcwolf/ui-tokens": "^0.1.0-alpha.2",
     "@shopify/restyle": "^1.4.0",
     "react-native-svg": "^12.1.1",
     "react-native-vector-icons": "^8.1.0"
