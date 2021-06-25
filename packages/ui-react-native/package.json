@@ -5,7 +5,6 @@
   "author": "Max Wolf <maxcharleswolf@gmail.com>",
   "homepage": "https://github.com/maxcwolf/react-native-component-library#readme",
   "license": "MIT",
-  "private": true,
   "main": "index.ts",
   "directories": {
     "base": "base",

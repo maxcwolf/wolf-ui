@@ -2,6 +2,8 @@
 
 A thematic and type-safe React Native component library and Storybook playground monorepo.
 
+> These packages are very much in an experimental alpha stage. There is still so much work that needs to be done. The base components are 100% ready to use, but creating your own theme is highly recommended.
+
 ## Packages
 
 - [@maxcwolf/ui-react-native](/packages/ui-react-native/README.md)
