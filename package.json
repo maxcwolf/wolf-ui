@@ -29,7 +29,10 @@
     "theme-specification"
   ],
   "scripts": {
-    "build:ui-react-native": "yarn workspace @maxcwolf/ui-react-native prepare",
+    "build:ui-rn": "yarn workspace @maxcwolf/ui-react-native prepare",
+    "start": "yarn workspace @maxcwolf/playground start",
+    "start:fresh": "yarn workspace @maxcwolf/playground start:fresh",
+    "start:superfresh": "yarn workspace @maxcwolf/playground start:superfresh",
     "prepare": "husky install",
     "lint": "eslint . --fix --ext .js,.jsx,.ts,.tsx",
     "typecheck": "tsc --noEmit --composite false",

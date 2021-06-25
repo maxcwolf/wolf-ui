@@ -1,10 +1,23 @@
-import React, { FC } from 'react'
-import Svg, { Path } from 'react-native-svg'
+import React, { memo, FC } from 'react'
+import Svg, { Path, SvgProps as RNSvgProps } from 'react-native-svg'
 import { Color } from '../../theme'
 import { IconSvgName } from '../../helpers'
 import { Box } from '../../base'
 
-const Add = ({ size, color }) => (
+type SvgProps = RNSvgProps & { size: number }
+
+const ArrowRight: FC<SvgProps> = memo(({ size, color }) => (
+  <Svg fill="none" height={size} viewBox="0 0 13 10" width={size}>
+    <Path
+      clip-rule="evenodd"
+      d="M0 5.11207C0 4.76392 0.282234 4.48169 0.630388 4.48169H9.87179L6.05732 1.52219C5.68713 1.23497 5.6919 0.674197 6.06693 0.39332C6.32272 0.201745 6.675 0.204742 6.92749 0.400642L12.8938 5.02967C12.9476 5.07142 12.9476 5.15272 12.8938 5.19448L6.92862 9.82262C6.67638 10.0183 6.32362 10.0183 6.07139 9.82261C5.71161 9.54345 5.71043 9.00036 6.06899 8.71964L9.87179 5.74246H0.630387C0.282234 5.74246 0 5.46023 0 5.11207Z"
+      fill={color}
+      fill-rule="evenodd"
+    />
+  </Svg>
+))
+
+const Add: FC<SvgProps> = memo(({ size, color }) => (
   <Svg fill="none" height={size} viewBox="0 0 40 40" width={size}>
     <Path
       clip-rule="evenodd"
@@ -13,9 +26,9 @@ const Add = ({ size, color }) => (
       fill-rule="evenodd"
     />
   </Svg>
-)
+))
 
-const AngleLeft = ({ size, color }) => (
+const AngleLeft = memo(({ size, color }: SvgProps) => (
   <Svg fill="none" height={size} viewBox="0 0 40 40" width={size}>
     <Path
       clip-rule="evenodd"
@@ -24,9 +37,9 @@ const AngleLeft = ({ size, color }) => (
       fill-rule="evenodd"
     />
   </Svg>
-)
+))
 
-const AngleUp = ({ size, color }) => (
+const AngleUp: FC<SvgProps> = memo(({ size, color }) => (
   <Svg fill="none" height={size} viewBox="0 0 40 40" width={size}>
     <Path
       clip-rule="evenodd"
@@ -35,9 +48,9 @@ const AngleUp = ({ size, color }) => (
       fill-rule="evenodd"
     />
   </Svg>
-)
+))
 
-const AngleRight = ({ size, color }) => (
+const AngleRight: FC<SvgProps> = memo(({ size, color }) => (
   <Svg fill="none" height={size} viewBox="0 0 40 40" width={size}>
     <Path
       clip-rule="evenodd"
@@ -46,9 +59,9 @@ const AngleRight = ({ size, color }) => (
       fill-rule="evenodd"
     />
   </Svg>
-)
+))
 
-const AngleDown = ({ size, color }) => (
+const AngleDown: FC<SvgProps> = memo(({ size, color }) => (
   <Svg fill="none" height={size} viewBox="0 0 40 30" width={size}>
     <Path
       clip-rule="evenodd"
@@ -57,9 +70,9 @@ const AngleDown = ({ size, color }) => (
       fill-rule="evenodd"
     />
   </Svg>
-)
+))
 
-const Checkmark = ({ size, color }) => (
+const Checkmark: FC<SvgProps> = memo(({ size, color }) => (
   <Svg fill="none" height={size} viewBox={`0 0 ${size * 1.5} ${size * 1.2}`} width={size}>
     <Path
       clip-rule="evenodd"
@@ -68,9 +81,9 @@ const Checkmark = ({ size, color }) => (
       fill-rule="evenodd"
     />
   </Svg>
-)
+))
 
-const Close = ({ size, color }) => (
+const Close: FC<SvgProps> = memo(({ size, color }) => (
   <Svg fill="none" height={size} viewBox="0 0 40 40" width={size}>
     <Path
       clip-rule="evenodd"
@@ -79,18 +92,18 @@ const Close = ({ size, color }) => (
       fill-rule="evenodd"
     />
   </Svg>
-)
+))
 
-const Edit = ({ size, color }) => (
+const Edit: FC<SvgProps> = memo(({ size, color }) => (
   <Svg fill="none" height={size} viewBox="0 0 40 40" width={size}>
     <Path
       d="M22.4033 16.5233L23.4767 17.5967L12.9067 28.1667H11.8333V27.0933L22.4033 16.5233ZM26.6033 9.5C26.3117 9.5 26.0083 9.61667 25.7867 9.83833L23.6517 11.9733L28.0267 16.3483L30.1617 14.2133C30.6167 13.7583 30.6167 13.0233 30.1617 12.5683L27.4317 9.83833C27.1983 9.605 26.9067 9.5 26.6033 9.5ZM22.4033 13.2217L9.79289 25.8321C9.60536 26.0196 9.5 26.274 9.5 26.5392V29.5C9.5 30.0523 9.94772 30.5 10.5 30.5H13.4608C13.726 30.5 13.9804 30.3946 14.1679 30.2071L26.7783 17.5967L22.4033 13.2217Z"
       fill={color}
     />
   </Svg>
-)
+))
 
-const Ellipsis = ({ size, color }) => (
+const Ellipsis: FC<SvgProps> = memo(({ size, color }) => (
   <Svg fill="none" height={size} viewBox="0 0 40 40" width={size}>
     <Path
       clip-rule="evenodd"
@@ -99,9 +112,9 @@ const Ellipsis = ({ size, color }) => (
       fill-rule="evenodd"
     />
   </Svg>
-)
+))
 
-const Search = ({ size, color }) => (
+const Search: FC<SvgProps> = memo(({ size, color }) => (
   <Svg fill="none" height={size} viewBox="0 0 24 24" width={size}>
     <Path
       clip-rule="evenodd"
@@ -110,16 +123,16 @@ const Search = ({ size, color }) => (
       fill-rule="evenodd"
     />
   </Svg>
-)
+))
 
-const Settings = ({ size, color }) => (
+const Settings: FC<SvgProps> = memo(({ size, color }) => (
   <Svg fill="none" height={size} viewBox="0 0 24 24" width={size}>
     <Path
       d="M20.0492 13.0617C20.0925 12.7151 20.125 12.3684 20.125 12.0001C20.125 11.6317 20.0925 11.2851 20.0492 10.9384L22.335 9.15091C22.5408 8.98841 22.595 8.69591 22.465 8.45758L20.2983 4.70925C20.2008 4.53591 20.0167 4.43841 19.8217 4.43841C19.7567 4.43841 19.6917 4.44925 19.6375 4.47092L16.94 5.55425C16.3767 5.12092 15.77 4.76342 15.1092 4.49258L14.6975 1.62175C14.665 1.36175 14.4375 1.16675 14.1667 1.16675H9.83333C9.56249 1.16675 9.33499 1.36175 9.30249 1.62175L8.89083 4.49258C8.22999 4.76342 7.62333 5.13175 7.05999 5.55425L4.36249 4.47092C4.29749 4.44925 4.23249 4.43841 4.16749 4.43841C3.98333 4.43841 3.79916 4.53591 3.70166 4.70925L1.53499 8.45758C1.39416 8.69591 1.45916 8.98841 1.66499 9.15091L3.95083 10.9384C3.90749 11.2851 3.87499 11.6426 3.87499 12.0001C3.87499 12.3576 3.90749 12.7151 3.95083 13.0617L1.66499 14.8492C1.45916 15.0117 1.40499 15.3042 1.53499 15.5426L3.70166 19.2909C3.79916 19.4642 3.98333 19.5617 4.17833 19.5617C4.24333 19.5617 4.30833 19.5509 4.36249 19.5292L7.05999 18.4459C7.62333 18.8792 8.22999 19.2367 8.89083 19.5076L9.30249 22.3784C9.33499 22.6384 9.56249 22.8334 9.83333 22.8334H14.1667C14.4375 22.8334 14.665 22.6384 14.6975 22.3784L15.1092 19.5076C15.77 19.2367 16.3767 18.8684 16.94 18.4459L19.6375 19.5292C19.7025 19.5509 19.7675 19.5617 19.8325 19.5617C20.0167 19.5617 20.2008 19.4642 20.2983 19.2909L22.465 15.5426C22.595 15.3042 22.5408 15.0117 22.335 14.8492L20.0492 13.0617ZM17.9042 11.2092C17.9475 11.5451 17.9583 11.7726 17.9583 12.0001C17.9583 12.2276 17.9367 12.4659 17.9042 12.7909L17.7525 14.0151L18.7167 14.7734L19.8867 15.6834L19.1283 16.9942L17.7525 16.4417L16.6258 15.9867L15.6508 16.7234C15.185 17.0701 14.7408 17.3301 14.2967 17.5142L13.1483 17.9801L12.975 19.2042L12.7583 20.6667H11.2417L11.0358 19.2042L10.8625 17.9801L9.71416 17.5142C9.24833 17.3192 8.81499 17.0701 8.38166 16.7451L7.39583 15.9867L6.24749 16.4526L4.87166 17.0051L4.11333 15.6942L5.28333 14.7842L6.24749 14.0259L6.09583 12.8017C6.06333 12.4659 6.04166 12.2167 6.04166 12.0001C6.04166 11.7834 6.06333 11.5342 6.09583 11.2092L6.24749 9.98508L5.28333 9.22675L4.11333 8.31675L4.87166 7.00591L6.24749 7.55841L7.37416 8.01341L8.34916 7.27675C8.81499 6.93008 9.25916 6.67008 9.70333 6.48591L10.8517 6.02008L11.025 4.79591L11.2417 3.33341H12.7475L12.9533 4.79591L13.1267 6.02008L14.275 6.48591C14.7408 6.68091 15.1742 6.93008 15.6075 7.25508L16.5933 8.01341L17.7417 7.54758L19.1175 6.99508L19.8758 8.30592L18.7167 9.22675L17.7525 9.98508L17.9042 11.2092ZM12 7.66675C9.60583 7.66675 7.66666 9.60592 7.66666 12.0001C7.66666 14.3942 9.60583 16.3334 12 16.3334C14.3942 16.3334 16.3333 14.3942 16.3333 12.0001C16.3333 9.60592 14.3942 7.66675 12 7.66675ZM12 14.1667C10.8083 14.1667 9.83333 13.1917 9.83333 12.0001C9.83333 10.8084 10.8083 9.83342 12 9.83342C13.1917 9.83342 14.1667 10.8084 14.1667 12.0001C14.1667 13.1917 13.1917 14.1667 12 14.1667Z"
       fill={color}
     />
   </Svg>
-)
+))
 
 const getSvg = (name: IconSvgName | string) => {
   switch (name) {
@@ -133,6 +146,8 @@ const getSvg = (name: IconSvgName | string) => {
       return AngleRight
     case 'angle-left':
       return AngleLeft
+    case 'arrow-right':
+      return ArrowRight
     case 'checkmark':
       return Checkmark
     case 'close':
