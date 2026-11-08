@@ -7,6 +7,10 @@
 - [ ] `yarn check` passes.
 - [ ] **Accessibility:** new or changed UI has a role and name, a 44dp target, keyboard access,
       scaling text, and theme colors only; its states have stories (docs/accessibility.md).
+- [ ] **Assistive technology:** if this adds a component or changes a role, name, state, keyboard
+      handling or announcement, the component's `accessibility.md` is updated and I ran the
+      manual pass and recorded it in docs/assistive-technology-testing.md (or asked for help
+      here).
 - [ ] **Theming:** no literal colors or sizes; new color pairings are in `contrastRequirements`.
 - [ ] **Public API:** if the API snapshot changed, the change is intended and there is a
       changeset (`yarn changeset`).
