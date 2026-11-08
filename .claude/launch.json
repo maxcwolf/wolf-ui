@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "storybook-static",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["e2e/serve.mjs", "apps/storybook/storybook-static", "6106"],
+      "port": 6106
+    },
+    {
+      "name": "storybook-web-dev",
+      "runtimeExecutable": "yarn",
+      "runtimeArgs": ["storybook:web"],
+      "port": 6006
+    }
+  ]
+}

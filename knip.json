@@ -1,0 +1,39 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "ignoreExportsUsedInFile": true,
+  "workspaces": {
+    ".": {
+      "entry": ["scripts/*.mjs", "scripts/**/*.test.mjs", "eslint-rules/*.test.mjs"],
+      "project": ["scripts/**/*.mjs", "eslint-rules/**/*.mjs", "*.{js,cjs,mjs}"]
+    },
+    "packages/tokens": {
+      "entry": ["src/**/*.test.ts"],
+      "project": ["src/**/*.ts"],
+      "ignoreDependencies": ["@babel/core"]
+    },
+    "packages/ui": {
+      "entry": [
+        "src/**/*.test.{ts,tsx}",
+        "src/**/*.stories.tsx",
+        "src/primitives/focus-visible.web.ts"
+      ],
+      "project": ["src/**/*.{ts,tsx}"],
+      "ignoreDependencies": ["@babel/core"]
+    },
+    "apps/storybook": {
+      "entry": [
+        "metro.config.js",
+        ".rnstorybook/*.{ts,tsx}",
+        ".storybook/*.{ts,tsx}",
+        "test/**/*.mjs"
+      ],
+      "project": ["**/*.{ts,tsx,mjs}"],
+      "ignoreDependencies": ["expo-updates", "@react-native/assets-registry"],
+      "metro": false
+    },
+    "e2e": {
+      "entry": ["tests/**/*.spec.ts"],
+      "project": ["**/*.{ts,mjs}"]
+    }
+  }
+}

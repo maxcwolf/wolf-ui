@@ -1,0 +1,17 @@
+# Guard files (docs/engineering-standards.md 4.3). Loosening any of these needs the maintainer.
+/eslint.config.mjs              @maxcwolf
+/eslint-rules/                  @maxcwolf
+/.dependency-cruiser.cjs        @maxcwolf
+/tsconfig.base.json             @maxcwolf
+/knip.json                      @maxcwolf
+/lefthook.yml                   @maxcwolf
+/renovate.json                  @maxcwolf
+/packages/*/jest.config.cjs     @maxcwolf
+/packages/ui/src/__contracts__/ @maxcwolf
+/e2e/playwright.config.ts       @maxcwolf
+/scripts/agent-lint-hook.mjs    @maxcwolf
+/docs/adr/                      @maxcwolf
+/docs/engineering-standards.md  @maxcwolf
+/AGENTS.md                      @maxcwolf
+/.claude/                       @maxcwolf
+/.github/                       @maxcwolf

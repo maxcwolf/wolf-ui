@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  // Guard file (docs/engineering-standards.md 2). Every workspace extends this. Loosening a flag
+  // needs an ADR and a CODEOWNERS review.
+  "compilerOptions": {
+    "target": "ES2023",
+    "lib": ["ES2023"],
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    // Workspace packages export "wolf-ui-source" -> src/index.ts, so type-checking, Metro, Vite and Jest
+    // all read source inside the monorepo. Published consumers never set it and get lib/ (ADR 0004).
+    "customConditions": ["wolf-ui-source"],
+    "moduleDetection": "force",
+    "resolveJsonModule": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "types": []
+  }
+}

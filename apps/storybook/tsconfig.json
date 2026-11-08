@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["ES2023", "DOM"],
+    "types": ["node"]
+  },
+  "include": [
+    "*.ts",
+    "*.tsx",
+    "src",
+    ".rnstorybook/*.ts",
+    ".rnstorybook/*.tsx",
+    ".storybook/*.ts",
+    ".storybook/*.tsx"
+  ],
+  "exclude": [".rnstorybook/storybook.requires.ts"]
+}

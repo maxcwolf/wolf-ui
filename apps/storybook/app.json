@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "Wolf UI Storybook",
+    "slug": "wolf-ui-storybook",
+    "scheme": "wolfui",
+    "version": "2.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "ios": { "bundleIdentifier": "com.maxcwolf.wolfui.storybook", "supportsTablet": true },
+    "android": { "package": "com.maxcwolf.wolfui.storybook" },
+    "web": { "bundler": "metro" }
+  }
+}

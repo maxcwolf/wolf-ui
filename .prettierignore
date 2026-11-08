@@ -1,1 +1,9 @@
-node_modules
+.yarn/
+.claude/
+coverage/
+lib/
+storybook-static/
+apps/storybook/.rnstorybook/storybook.requires.ts
+e2e/__screenshots__/
+yarn.lock
+CHANGELOG.md

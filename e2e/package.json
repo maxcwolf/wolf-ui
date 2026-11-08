@@ -1,0 +1,18 @@
+{
+  "name": "@maxcwolf/e2e",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Playwright suites against the built web Storybook: every story renders, passes axe in every theme, works by keyboard, and matches its screenshot.",
+  "type": "module",
+  "scripts": {
+    "e2e": "yarn workspace @maxcwolf/storybook web:build && playwright test",
+    "e2e:docker": "yarn workspace @maxcwolf/storybook web:build && sh ./run-in-docker.sh",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@playwright/test": "1.65.0",
+    "@types/node": "22.20.5",
+    "typescript": "6.0.3"
+  }
+}

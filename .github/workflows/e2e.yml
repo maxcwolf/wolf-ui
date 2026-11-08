@@ -1,0 +1,42 @@
+name: e2e
+
+# Every web story: axe (WCAG 2.2 AA), console errors, keyboard flows and screenshots, in both
+# themes, desktop and mobile. Runs in the Playwright image so screenshots match the baselines
+# made with `yarn e2e:update-screenshots`. The image tag must equal @playwright/test in
+# e2e/package.json (scripts/workflows.test.mjs checks).
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: e2e-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    container:
+      image: mcr.microsoft.com/playwright:v1.65.0-noble
+      options: --ipc=host
+    env:
+      HOME: /root
+      VISUAL: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - run: corepack enable
+      - run: yarn install --immutable
+      - run: yarn workspace @maxcwolf/storybook web:build
+      - run: yarn workspace @maxcwolf/e2e playwright test
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-report
+          path: |
+            e2e/playwright-report
+            e2e/test-results
+          retention-days: 14

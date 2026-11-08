@@ -1,0 +1,24 @@
+# Git hooks, installed by `yarn install` (root postinstall runs `lefthook install`).
+# Guard file: loosening a hook needs a CODEOWNERS review (docs/engineering-standards.md 4.1).
+
+pre-commit:
+  parallel: true
+  jobs:
+    - name: prettier
+      glob: '*.{js,cjs,mjs,ts,tsx,json,md,yml,yaml}'
+      run: yarn prettier --write --ignore-unknown {staged_files}
+      stage_fixed: true
+    - name: eslint
+      glob: '*.{js,cjs,mjs,ts,tsx}'
+      run: yarn eslint --max-warnings 0 --no-warn-ignored --fix {staged_files}
+      stage_fixed: true
+
+commit-msg:
+  jobs:
+    - name: commitlint
+      run: yarn commitlint --edit {1}
+
+pre-push:
+  jobs:
+    - name: check
+      run: yarn check

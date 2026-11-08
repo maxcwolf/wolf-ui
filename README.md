@@ -1,29 +1,101 @@
 # Wolf UI 🐺
 
-A thematic and type-safe React Native component library and Storybook playground monorepo.
+A themeable, type-safe, accessible component library for React Native, built on
+[Restyle](https://github.com/Shopify/restyle). One codebase for **bare React Native**, **Expo**
+and **Expo web** (react-native-web).
 
-> These packages are very much in an experimental alpha stage. There is still so much work that needs to be done. The base components are 100% ready to use, but creating your own theme is highly recommended.
+- **Swap themes at runtime.** Light, dark, follow-the-device, brand themes, or any number of
+  named themes, with one provider and one hook ([docs/theming.md](docs/theming.md)).
+- **Accessible by default.** WCAG 2.2 AA: every control has a role, a name, a 44dp target, a
+  keyboard focus ring and scaling text, and both built-in themes pass a contrast audit you can
+  run on your own themes too ([docs/accessibility.md](docs/accessibility.md)).
+- **Type-safe.** Every color, space, radius and text style is a typed theme key.
+- **No native setup.** Icons are SVG; the only native peer is `react-native-svg`.
 
-## Packages
+| Package                                    | What it is                                                            |
+| ------------------------------------------ | --------------------------------------------------------------------- |
+| [`@maxcwolf/ui-react-native`](packages/ui) | Theme, primitives (Box, Text, Pressable) and components               |
+| [`@maxcwolf/ui-tokens`](packages/tokens)   | Raw design tokens: palette, spacing, radii, type scale, contrast math |
 
-- [@maxcwolf/ui-react-native](/packages/ui-react-native/README.md)
-- [@maxcwolf/ui-tokens](/packages/ui-tokens/README.md)
-- [@maxcwolf/playground](/packages/playground/README.md)
+## Install
 
-## Design Tokens
+```sh
+yarn add @maxcwolf/ui-react-native @shopify/restyle react-native-svg
+# Expo: npx expo install @maxcwolf/ui-react-native @shopify/restyle react-native-svg
+```
 
-Design tokens are the base level visual design pieces of a design system. They are named entities that store visual design attributes. We use them in place of hard-coded values (such as hex values for color or pixel values for spacing) in order to maintain a scalable and consistent visual system for UI development. Tokens are universal and never change across themes. Design tokens are translated into themes for use in styling components.
+Requires React 19 and React Native 0.79 or later. Expo web needs `react-dom` and
+`react-native-web`, as for any Expo web app.
 
-## Theme
+## Use
 
-The theme translates the design tokens into more meaningful properties for use in our component styles. The theme should follow the [Theme Specification](https://system-ui.com/theme/) (also see [style-system](https://styled-system.com/theme-specification/)'s or [theme-ui](https://theme-ui.com/theme-spec/)'s theme specification documentation).
+```tsx
+import { Button, Card, Stack, Text, TextInput, ThemeProvider } from '@maxcwolf/ui-react-native';
 
-## Restyle
+export default function App() {
+  const [email, setEmail] = useState('');
+  return (
+    <ThemeProvider>
+      <Card>
+        <Stack gap="m">
+          <Text variant="heading2">Sign in</Text>
+          <TextInput label="Email" value={email} onChangeText={setEmail} />
+          <Button onPress={signIn} iconEnd="arrow-right">
+            Continue
+          </Button>
+        </Stack>
+      </Card>
+    </ThemeProvider>
+  );
+}
+```
 
-This component library uses [Restyle](https://github.com/Shopify/restyle) to create theme-reliant and type-safe components. Restyle is very similar to [styled-system](www.styled-system.com), but has some advantages for React Native. Restyle utilizes the native styling layer rather than relying on Styled Components or Emotion like styled-system does, therefore it requires less runtime style calculation. Restyle also has much better Typescript support out of the box.
+Switch theme anywhere below the provider:
 
-From [Restyle's docs](https://github.com/Shopify/restyle#shopifyrestyle):
+```tsx
+const { setPreference } = useThemeSwitcher();
+setPreference('dark'); // or 'light', 'system', or any theme you registered
+```
 
-> The Restyle library provides a type-enforced system for building UI components in React Native with TypeScript. It's a library for building UI libraries, with themability as the core focus.
->
-> This library assumes that the UI is built upon a design system that (at the very least) defines a set of colors and spacing constants that lays as a foundation. While the library acknowledges that there can be exceptions to the system by allowing any style to be overridden, it keeps the developer most productive when one-off values are kept to a minimum.
+## Components
+
+`Box`, `Text`, `Pressable` (primitives) · `Button` · `Card` · `Icon` · `Spinner` · `Stack` ·
+`TextInput`. Browse them, in every theme, in Storybook: `yarn storybook:web`.
+
+## Develop
+
+Requires Node 22 (`.nvmrc`) and Corepack. Contributors and coding agents start with
+**[AGENTS.md](AGENTS.md)**; the rules and the guard behind each are in
+[docs/engineering-standards.md](docs/engineering-standards.md), and decisions in
+[docs/adr/](docs/adr/).
+
+```sh
+corepack enable
+yarn install                 # also installs the git hooks
+yarn check                   # every guard: types, lint, format, architecture, dead code, tests, build
+yarn new:component Badge     # scaffold a component that already passes every check
+yarn storybook:web           # web Storybook at http://localhost:6006
+yarn storybook:ios           # on-device Storybook in the iOS simulator (also :android)
+yarn e2e                     # axe, keyboard and smoke tests over every story
+yarn e2e:docker              # the same plus screenshot tests, in the pinned Playwright image
+```
+
+### How it is tested
+
+| Layer           | Tool                                                                                                                                                             |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Unit, component | Jest 30 + React Native Testing Library 14 (no Expo loaded)                                                                                                       |
+| Contracts       | Every story rendered in both themes for accessibility; component structure; public API snapshot; theme contrast and parity                                       |
+| Bundling        | `expo export` for iOS, Android and web in CI                                                                                                                     |
+| Web end to end  | Playwright + axe-core over every story, both themes, desktop and mobile; keyboard flows                                                                          |
+| Visual          | Playwright screenshots in Docker now; on-device captures with [targus](https://github.com/maxcwolf/targus) next ([ADR 0009](docs/adr/0009-visual-regression.md)) |
+
+### Release
+
+Changesets: add one with `yarn changeset` for any user-facing change. On `main`,
+`.github/workflows/release.yml` opens a version PR and publishes when it merges (needs the
+`NPM_TOKEN` secret).
+
+## License
+
+MIT

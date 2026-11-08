@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "types": [],
+    // TypeScript 6 needs it explicit; "." keeps lib/typescript/src/ where package.json points.
+    "rootDir": "."
+  },
+  "exclude": [
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx",
+    "src/**/*.stories.tsx",
+    "src/test-utils",
+    "src/__contracts__"
+  ]
+}

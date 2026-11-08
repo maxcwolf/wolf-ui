@@ -1,0 +1,64 @@
+{
+  "name": "@maxcwolf/ui-tokens",
+  "version": "2.0.0-alpha.0",
+  "description": "Design tokens for Wolf UI: color palette, spacing, radii and type scales. No runtime dependencies.",
+  "license": "MIT",
+  "author": "Max Wolf <maxcharleswolf@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxcwolf/wolf-ui.git",
+    "directory": "packages/tokens"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "main": "./lib/module/index.js",
+  "types": "./lib/typescript/src/index.d.ts",
+  "exports": {
+    ".": {
+      "wolf-ui-source": "./src/index.ts",
+      "types": "./lib/typescript/src/index.d.ts",
+      "default": "./lib/module/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "lib",
+    "!**/*.test.ts"
+  ],
+  "scripts": {
+    "build": "bob build",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "jest --coverage",
+    "verify": "publint --strict"
+  },
+  "devDependencies": {
+    "@babel/core": "7.29.7",
+    "@types/jest": "30.0.0",
+    "jest": "30.5.2",
+    "react-native-builder-bob": "0.44.1",
+    "typescript": "6.0.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "exclude": "**/*.test.ts",
+    "targets": [
+      [
+        "module",
+        {
+          "esm": true
+        }
+      ],
+      [
+        "typescript",
+        {
+          "project": "tsconfig.build.json"
+        }
+      ]
+    ]
+  }
+}

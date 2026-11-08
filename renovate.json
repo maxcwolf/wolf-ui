@@ -1,0 +1,71 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended", ":semanticCommits", ":pinAllExceptPeerDependencies"],
+  "schedule": ["* 0-6 * * 1"],
+  "prConcurrentLimit": 5,
+  "minimumReleaseAge": "3 days",
+  "lockFileMaintenance": { "enabled": true, "schedule": ["* 0-6 * * 1"] },
+  "postUpdateOptions": ["yarnDedupeHighest"],
+  "packageRules": [
+    {
+      "description": "Expo pins the React Native stack. Upgrade it with `npx expo install --fix` in apps/storybook, never piecemeal.",
+      "matchPackageNames": [
+        "expo",
+        "expo-*",
+        "react",
+        "react-dom",
+        "react-native",
+        "react-native-web",
+        "react-native-svg",
+        "react-native-reanimated",
+        "react-native-worklets",
+        "react-native-gesture-handler",
+        "react-native-safe-area-context",
+        "@react-native-async-storage/async-storage",
+        "@react-native/*",
+        "jest-expo",
+        "@types/react"
+      ],
+      "groupName": "expo sdk",
+      "matchUpdateTypes": ["major", "minor"],
+      "enabled": false
+    },
+    {
+      "description": "Storybook packages move together.",
+      "matchPackageNames": ["storybook", "@storybook/*"],
+      "groupName": "storybook"
+    },
+    {
+      "description": "Lint toolchain moves together.",
+      "matchPackageNames": [
+        "eslint",
+        "@eslint/js",
+        "typescript-eslint",
+        "eslint-plugin-*",
+        "eslint-import-resolver-typescript",
+        "@eslint-community/*"
+      ],
+      "groupName": "lint toolchain"
+    },
+    {
+      "description": "eslint-plugin-react-native-a11y supports ESLint <= 9 (ADR 0006).",
+      "matchPackageNames": ["eslint", "@eslint/js"],
+      "allowedVersions": "<10.0.0"
+    },
+    {
+      "description": "typescript-eslint 8 supports TypeScript <6.1 (ADR 0006).",
+      "matchPackageNames": ["typescript"],
+      "allowedVersions": "<6.1.0"
+    },
+    {
+      "description": "Node follows .nvmrc (22).",
+      "matchPackageNames": ["@types/node"],
+      "allowedVersions": "<23.0.0"
+    },
+    {
+      "description": "The Playwright Docker image tag in e2e/package.json must match @playwright/test.",
+      "matchPackageNames": ["@playwright/test", "@axe-core/playwright"],
+      "groupName": "playwright"
+    }
+  ]
+}
