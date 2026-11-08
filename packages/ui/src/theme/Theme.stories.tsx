@@ -7,7 +7,7 @@ import { Box, Text } from '../primitives';
 import type { ColorName } from './colors';
 import { createWolfTheme } from './create-theme';
 import { darkTheme, lightTheme, type TextVariant } from './theme';
-import { ThemeProvider, useThemeSwitcher } from './ThemeProvider';
+import { ThemeProvider, useColorMode } from './ThemeProvider';
 import { useTheme } from './use-theme';
 
 const meta = { title: 'Foundations/Theme' } satisfies Meta;
@@ -83,21 +83,21 @@ const brandDark = createWolfTheme(
 );
 
 function ThemeSettings() {
-  const { name, preference, names, setPreference } = useThemeSwitcher();
+  const { name, mode, names, setMode } = useColorMode();
   return (
     <Box backgroundColor="background" padding="l" gap="m">
       <Text variant="heading3" role="heading">
         Appearance
       </Text>
-      <Text variant="body">{`Showing "${name}" (preference: ${preference})`}</Text>
+      <Text variant="body">{`Showing "${name}" (mode: ${mode})`}</Text>
       <Stack direction="row" gap="s" flexWrap="wrap">
         {['system', ...names].map((option) => (
           <Button
             key={option}
             size="s"
-            variant={option === preference ? 'primary' : 'secondary'}
+            variant={option === mode ? 'primary' : 'secondary'}
             onPress={() => {
-              setPreference(option);
+              setMode(option);
             }}
           >
             {option}
@@ -116,7 +116,7 @@ export const Switching: Story = {
   render: () => (
     <ThemeProvider
       themes={{ light: lightTheme, dark: darkTheme, brand, brandDark }}
-      defaultPreference="light"
+      defaultMode="light"
     >
       <ThemeSettings />
     </ThemeProvider>

@@ -2,79 +2,80 @@ import { createContext, useCallback, useContext, useMemo, useState, type ReactNo
 import { useColorScheme } from 'react-native';
 // The one place restyle's provider is used; consumers use this ThemeProvider (ADR 0005).
 import { ThemeProvider as RestyleThemeProvider } from '@shopify/restyle';
-import {
-  resolveTheme,
-  type ResolvedTheme,
-  type ThemePreference,
-  type ThemeSet,
-} from './resolve-theme';
+import { resolveTheme, type ResolvedTheme, type ColorMode, type ThemeSet } from './resolve-theme';
 import { darkTheme, lightTheme } from './theme';
 
 const defaultThemes: ThemeSet = { light: lightTheme, dark: darkTheme };
 
-export interface ThemeSwitcher extends ResolvedTheme {
-  /** What the user chose: `'system'` or a theme name. */
-  preference: ThemePreference;
-  setPreference: (preference: ThemePreference) => void;
-  /** Every theme name the provider can switch to (plus `'system'`). */
+/**
+ * The color mode and how to change it. `mode` is what was chosen (`'system'` or a theme name);
+ * `name` and `theme` are what is showing now, so `'system'` resolves to `'light'` or `'dark'`.
+ */
+export interface ColorModeState extends ResolvedTheme {
+  mode: ColorMode;
+  setMode: (mode: ColorMode) => void;
+  /** The registered theme names. `mode` can be any of them, or `'system'`. */
   names: string[];
 }
 
-const ThemeSwitcherContext = createContext<ThemeSwitcher | null>(null);
+const ColorModeContext = createContext<ColorModeState | null>(null);
 
 export interface ThemeProviderProps {
   children: ReactNode;
   /** The themes to switch between. Defaults to the built-in light and dark themes. */
   themes?: ThemeSet;
-  /** Controlled preference. Leave unset to let the provider own it. */
-  preference?: ThemePreference;
-  /** Starting preference when uncontrolled. Defaults to `'system'`. */
-  defaultPreference?: ThemePreference;
-  /** Called on every `setPreference`; persist the value here if you want it to survive restarts. */
-  onPreferenceChange?: (preference: ThemePreference) => void;
+  /** Controlled mode. Leave unset to let the provider own it. */
+  mode?: ColorMode;
+  /** Starting mode when uncontrolled. Defaults to `'system'`. */
+  defaultMode?: ColorMode;
+  /** Called on every `setMode`; persist the value here if you want it to survive restarts. */
+  onModeChange?: (mode: ColorMode) => void;
 }
 
 export function ThemeProvider({
   children,
   themes = defaultThemes,
-  preference: controlled,
-  defaultPreference = 'system',
-  onPreferenceChange,
+  mode: controlled,
+  defaultMode = 'system',
+  onModeChange,
 }: ThemeProviderProps) {
   const system = useColorScheme();
-  const [uncontrolled, setUncontrolled] = useState<ThemePreference>(defaultPreference);
-  const preference = controlled ?? uncontrolled;
+  const [uncontrolled, setUncontrolled] = useState<ColorMode>(defaultMode);
+  const mode = controlled ?? uncontrolled;
 
-  const setPreference = useCallback(
-    (next: ThemePreference) => {
+  const setMode = useCallback(
+    (next: ColorMode) => {
       setUncontrolled(next);
-      onPreferenceChange?.(next);
+      onModeChange?.(next);
     },
-    [onPreferenceChange],
+    [onModeChange],
   );
 
-  const value = useMemo<ThemeSwitcher>(
+  const value = useMemo<ColorModeState>(
     () => ({
-      ...resolveTheme(themes, preference, system),
-      preference,
-      setPreference,
+      ...resolveTheme(themes, mode, system),
+      mode,
+      setMode,
       names: Object.keys(themes),
     }),
-    [themes, preference, system, setPreference],
+    [themes, mode, system, setMode],
   );
 
   return (
-    <ThemeSwitcherContext.Provider value={value}>
+    <ColorModeContext.Provider value={value}>
       <RestyleThemeProvider theme={value.theme}>{children}</RestyleThemeProvider>
-    </ThemeSwitcherContext.Provider>
+    </ColorModeContext.Provider>
   );
 }
 
-/** Reads and changes the active theme: `const { name, setPreference } = useThemeSwitcher()`. */
-export function useThemeSwitcher(): ThemeSwitcher {
-  const switcher = useContext(ThemeSwitcherContext);
-  if (!switcher) {
-    throw new Error('useThemeSwitcher must be used inside a wolf-ui ThemeProvider.');
+/**
+ * Reads and changes the color mode: `const { mode, setMode } = useColorMode()`. For the theme's
+ * tokens, use `useTheme()`; components read tokens and never switch modes.
+ */
+export function useColorMode(): ColorModeState {
+  const state = useContext(ColorModeContext);
+  if (!state) {
+    throw new Error('useColorMode must be used inside a wolf-ui ThemeProvider.');
   }
-  return switcher;
+  return state;
 }
