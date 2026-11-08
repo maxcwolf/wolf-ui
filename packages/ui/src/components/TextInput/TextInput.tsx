@@ -64,8 +64,8 @@ export function TextInput({
   const invalid = errorText !== undefined;
 
   return (
-    <Box gap="xs">
-      <Text variant="label" nativeID={labelId}>
+    <Box>
+      <Text variant="label" nativeID={labelId} marginBottom="xs">
         {label}
       </Text>
       <Box

@@ -48,7 +48,7 @@ string`, `TextInput` requires `label`, `Text` requires a `variant`, an `Icon` is
 | 3.3.1 Error identification   | `TextInput` shows `errorText` in place of the helper, as an alert, in the `danger` color + border, and marks the field invalid | `TextInput.test.tsx`, screen reader flows                         |
 | 3.3.2 Labels or instructions | Every field has a visible label; helper text is the accessibility hint                                                         | types, `TextInput.test.tsx`                                       |
 | 4.1.2 Name, role, value      | Controls expose role, name and state (`aria-disabled`, `aria-busy` while loading, `aria-invalid`, `secureTextEntry`)           | contract (names), unit tests, axe, screen reader transcripts      |
-| 4.1.3 Status messages        | Field errors are a polite live region                                                                                          | `TextInput.test.tsx`, screen reader flows (virtual and VoiceOver) |
+| 4.1.3 Status messages        | Field errors appear inside a polite live region that is always mounted, so they are announced on arrival                       | `TextInput.test.tsx`, screen reader flows (virtual and VoiceOver) |
 
 ## Not yet automated
 

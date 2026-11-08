@@ -20,6 +20,18 @@ describe('TextInput', () => {
     expect(screen.getByRole('alert')).toHaveTextContent('Enter an email');
   });
 
+  it('keeps a live region mounted, so an error that appears is announced', async () => {
+    const liveRegions = () =>
+      screen.root?.queryAll((node) => node.props.accessibilityLiveRegion === 'polite') ?? [];
+    const { rerender } = await render(<TextInput label="Email" helperText="We never share it" />);
+    expect(liveRegions()).toHaveLength(1);
+    expect(screen.queryByRole('alert')).toBeNull();
+
+    await rerender(<TextInput label="Email" errorText="Enter an email" />);
+    const [region] = liveRegions();
+    expect(region).toContainElement(screen.getByRole('alert'));
+  });
+
   it('is described by its helper text, then by its error', async () => {
     const { rerender } = await render(<TextInput label="Email" helperText="We never share it" />);
     expect(screen.getByLabelText('Email')).toHaveProp('accessibilityHint', 'We never share it');

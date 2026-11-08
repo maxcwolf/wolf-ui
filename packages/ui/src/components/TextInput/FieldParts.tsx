@@ -1,5 +1,5 @@
 import { minTouchTarget } from '@maxcwolf/ui-tokens';
-import { Pressable, Text } from '../../primitives';
+import { Box, Pressable, Text } from '../../primitives';
 import { Icon } from '../Icon';
 
 interface RevealButtonProps {
@@ -32,25 +32,27 @@ interface FieldMessageProps {
   errorText: string | undefined;
 }
 
-/** Helper text, or the error in its place, announced politely when it appears (WCAG 3.3.1, 4.1.3). */
+/**
+ * Helper text, or the error in its place (WCAG 3.3.1). The error renders inside a polite live
+ * region that is always mounted: screen readers announce a change inside a live region that
+ * already exists, but VoiceOver in Safari skips one that arrives with its text (WCAG 4.1.3).
+ * Spacing is a top margin rather than the parent's gap, so the empty region takes no space.
+ */
 export function FieldMessage({ id, helperText, errorText }: FieldMessageProps) {
-  if (errorText !== undefined) {
-    return (
-      <Text
-        variant="caption"
-        color="danger"
-        role="alert"
-        accessibilityLiveRegion="polite"
-        nativeID={id}
-      >
-        {errorText}
-      </Text>
-    );
-  }
-  if (helperText === undefined) return null;
   return (
-    <Text variant="caption" color="textMuted" nativeID={id}>
-      {helperText}
-    </Text>
+    <>
+      {errorText === undefined && helperText !== undefined && (
+        <Text variant="caption" color="textMuted" nativeID={id} marginTop="xs">
+          {helperText}
+        </Text>
+      )}
+      <Box accessibilityLiveRegion="polite" aria-live="polite">
+        {errorText !== undefined && (
+          <Text variant="caption" color="danger" role="alert" nativeID={id} marginTop="xs">
+            {errorText}
+          </Text>
+        )}
+      </Box>
+    </>
   );
 }
