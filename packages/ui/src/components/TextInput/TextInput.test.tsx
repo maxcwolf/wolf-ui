@@ -20,6 +20,13 @@ describe('TextInput', () => {
     expect(screen.getByRole('alert')).toHaveTextContent('Enter an email');
   });
 
+  it('is described by its helper text, then by its error', async () => {
+    const { rerender } = await render(<TextInput label="Email" helperText="We never share it" />);
+    expect(screen.getByLabelText('Email')).toHaveProp('accessibilityHint', 'We never share it');
+    await rerender(<TextInput label="Email" helperText="We never share it" errorText="Invalid" />);
+    expect(screen.getByLabelText('Email')).toHaveProp('accessibilityHint', 'Invalid');
+  });
+
   it('cannot be edited when disabled', async () => {
     await render(<TextInput label="Email" disabled />);
     const field = screen.getByLabelText('Email');

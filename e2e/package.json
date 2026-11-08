@@ -7,10 +7,14 @@
   "scripts": {
     "e2e": "yarn workspace @maxcwolf/storybook web:build && playwright test",
     "e2e:docker": "yarn workspace @maxcwolf/storybook web:build && sh ./run-in-docker.sh",
-    "typecheck": "tsc -p tsconfig.json"
+    "typecheck": "tsc -p tsconfig.json",
+    "screen-readers": "playwright test --config screen-readers.config.ts"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",
+    "@guidepup/guidepup": "0.40.0",
+    "@guidepup/playwright": "0.21.0",
+    "@guidepup/virtual-screen-reader": "0.33.0",
     "@playwright/test": "1.65.0",
     "@types/node": "22.20.5",
     "typescript": "6.0.3"

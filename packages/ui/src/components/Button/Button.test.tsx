@@ -10,6 +10,11 @@ describe('Button', () => {
     expect(onPress).toHaveBeenCalledTimes(1);
   });
 
+  it('states busy only while loading, so a screen reader does not say "not busy"', async () => {
+    await render(<Button>Save</Button>);
+    expect(screen.getByRole('button', { name: 'Save' })).not.toHaveProp('aria-busy');
+  });
+
   it('ignores presses and says so when disabled', async () => {
     const onPress = jest.fn();
     await render(

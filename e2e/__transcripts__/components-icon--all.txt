@@ -1,0 +1,13 @@
+alert
+arrow-right
+check
+chevron-down
+chevron-left
+chevron-right
+close
+eye
+eye-off
+info
+minus
+plus
+search
