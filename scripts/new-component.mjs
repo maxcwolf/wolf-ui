@@ -17,6 +17,7 @@ try {
       '',
       'Next:',
       `  1. Build ${name} from the primitives and theme names; replace the TODO doc comment.`,
+      `     Fill in accessibility.md and add a ${name} section to docs/assistive-technology-testing.md.`,
       '  2. yarn workspace @maxcwolf/ui-react-native test -u   (accept the new public API snapshot)',
       '  3. yarn storybook:generate                             (add the story to on-device Storybook)',
       '  4. yarn changeset                                      (it is a user-facing change)',

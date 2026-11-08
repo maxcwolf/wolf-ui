@@ -1,10 +1,22 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-// docs/engineering-standards.md 1.3: every component is a folder with the same four files, so
-// nothing ships untested, without a story, or outside the public entry. `yarn new:component`
-// writes all of them.
+// docs/engineering-standards.md 1.3: every component is a folder with the same five files, so
+// nothing ships untested, without a story, without an accessibility spec, or outside the public
+// entry. `yarn new:component` writes all of them. docs/assistive-technology-testing.md keeps a
+// manual results table for each component.
 const componentsDir = join(__dirname, '..', 'components');
+const atTesting = readFileSync(
+  join(__dirname, '..', '..', '..', '..', 'docs', 'assistive-technology-testing.md'),
+  'utf8',
+);
+const specSections = [
+  '## Role, name and states',
+  '## Keyboard',
+  '## Focus',
+  '## Expected announcements',
+  '## Known issues',
+];
 const components = readdirSync(componentsDir, { withFileTypes: true })
   .filter((entry) => entry.isDirectory())
   .map((entry) => entry.name);
@@ -21,8 +33,26 @@ describe.each(components)('%s', (name) => {
     expect(name).toMatch(/^[A-Z][A-Za-z0-9]*$/);
   });
 
-  it.each([`${name}.tsx`, `${name}.test.tsx`, `${name}.stories.tsx`, 'index.ts'])('has %s', (f) => {
+  it.each([
+    `${name}.tsx`,
+    `${name}.test.tsx`,
+    `${name}.stories.tsx`,
+    'index.ts',
+    'accessibility.md',
+  ])('has %s', (f) => {
     expect(existsSync(file(f))).toBe(true);
+  });
+
+  it('has an accessibility spec with every section (docs/accessibility.md)', () => {
+    const spec = readFileSync(file('accessibility.md'), 'utf8');
+    expect(spec.startsWith(`# ${name}: accessibility spec\n`)).toBe(true);
+    for (const section of specSections) {
+      expect(spec).toContain(`\n${section}\n`);
+    }
+  });
+
+  it('has a results table in docs/assistive-technology-testing.md', () => {
+    expect(atTesting).toContain(`\n### ${name}\n`);
   });
 
   it('is exported from components/index.ts', () => {

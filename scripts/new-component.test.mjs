@@ -20,16 +20,40 @@ function scratch() {
 }
 
 describe('newComponent', () => {
-  it('writes the four files and keeps the barrel sorted', () => {
+  it('writes the five files and keeps the barrel sorted', () => {
     const uiSrc = scratch();
     newComponent({ name: 'Badge', uiSrc });
-    for (const file of ['Badge.tsx', 'Badge.test.tsx', 'Badge.stories.tsx', 'index.ts']) {
+    for (const file of [
+      'Badge.tsx',
+      'Badge.test.tsx',
+      'Badge.stories.tsx',
+      'index.ts',
+      'accessibility.md',
+    ]) {
       assert.ok(existsSync(join(uiSrc, 'components/Badge', file)), file);
     }
     assert.equal(
       readFileSync(join(uiSrc, 'components/index.ts'), 'utf8'),
       "export * from './Badge';\nexport * from './Card';\nexport * from './Stack';\n",
     );
+    rmSync(uiSrc, { recursive: true });
+  });
+
+  it('writes an accessibility spec stub with every section', () => {
+    const uiSrc = scratch();
+    newComponent({ name: 'Badge', uiSrc });
+    const spec = readFileSync(join(uiSrc, 'components/Badge/accessibility.md'), 'utf8');
+    for (const heading of [
+      '# Badge: accessibility spec',
+      '## Role, name and states',
+      '## Keyboard',
+      '## Focus',
+      '## Expected announcements',
+      '## Known issues',
+    ]) {
+      assert.ok(spec.includes(`${heading}\n`), heading);
+    }
+    assert.ok(spec.includes('assistive-technology-testing.md#badge'));
     rmSync(uiSrc, { recursive: true });
   });
 
@@ -65,7 +89,7 @@ describe('generated output in the real tree', () => {
     /** @param {string} cmd @param {string[]} args */
     const run = (cmd, args) => execFileSync(cmd, args, { cwd: root, stdio: 'pipe' });
     run('yarn', ['workspace', '@maxcwolf/ui-react-native', 'typecheck']);
-    run('yarn', ['eslint', '--max-warnings', '0', ...files]);
+    run('yarn', ['eslint', '--max-warnings', '0', ...files.filter((f) => !f.endsWith('.md'))]);
     run('yarn', ['prettier', '--check', ...files]);
   });
 });
