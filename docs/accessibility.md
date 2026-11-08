@@ -4,6 +4,12 @@ wolf-ui targets **WCAG 2.2 level AA** on iOS, Android and the web. Accessibility
 "done", not a later pass: every requirement below has a check that fails the build (ADR 0008).
 Checks that cannot run without a device are listed at the end with their planned guard.
 
+What each component should do for a screen reader or keyboard user is written in its spec,
+`accessibility.md` beside the component (role, name and states, keyboard, focus, expected
+announcements, known issues). What real assistive technology did when a person last tried it is
+recorded in [assistive-technology-testing.md](assistive-technology-testing.md), with the
+supported matrix and when a manual pass is required.
+
 ## How it is checked
 
 1. **Types make the accessible path the only path.** `Button` takes its label as `children:
@@ -54,7 +60,9 @@ string`, `TextInput` requires `label`, `Text` requires a `variant`, an `Icon` is
 
 - **Screen reader output on devices** (VoiceOver on iOS, TalkBack): planned as Maestro flows
   against on-device Storybook (engineering-standards 6.2). The web build is covered by the
-  virtual reader and VoiceOver on macOS; check new components on a device by hand until then.
+  virtual reader and VoiceOver on macOS; until the device flows land, check new components on a
+  device by hand with the matrix and process in
+  [assistive-technology-testing.md](assistive-technology-testing.md).
 - **What the virtual reader gets wrong**: it reads inside a progressbar (the spinner's
   "graphics-document") and a busy button, which real readers treat as one item, and it reads a
   password field's value aloud. These lines in the transcripts are expected (ADR 0010).
@@ -65,6 +73,10 @@ string`, `TextInput` requires `label`, `Text` requires a `variant`, an `Icon` is
 
 ## Checklist for a new component
 
+- [ ] Its `accessibility.md` is filled in from the matching APG pattern, with every gap under
+      known issues (`src/__contracts__/component-structure.test.ts` checks it exists).
+- [ ] It has a results section in [assistive-technology-testing.md](assistive-technology-testing.md)
+      and has had a manual pass on every row of the matrix.
 - [ ] It has a role and an accessible name, from a required prop where possible.
 - [ ] It is reachable and operable by keyboard on the web.
 - [ ] Every interactive part is at least 44dp tall (use `minTouchTarget` and `hitSlop`).

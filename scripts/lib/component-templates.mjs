@@ -66,3 +66,42 @@ export const Default: Story = {};
 /** @param {string} name */
 export const indexFile = (name) => `export { ${name}, type ${name}Props } from './${name}';
 `;
+
+/** @param {string} name */
+export const accessibilityFile = (name) => `# ${name}: accessibility spec
+
+Pattern: TODO: link the matching [WAI-ARIA APG pattern](https://www.w3.org/WAI/ARIA/apg/patterns/),
+or say there is none and what ${name} follows instead. Manual results:
+[docs/assistive-technology-testing.md](../../../../../docs/assistive-technology-testing.md#${name.toLowerCase()}).
+
+## Role, name and states
+
+| Aspect | Web (React Native Web output) | iOS / Android (React Native props) |
+| ------ | ----------------------------- | ---------------------------------- |
+| Role   | TODO                          | TODO                               |
+| Name   | TODO                          | TODO                               |
+| States | TODO                          | TODO                               |
+
+## Keyboard
+
+| Key | Behaviour |
+| --- | --------- |
+| Tab | TODO      |
+
+## Focus
+
+TODO: whether ${name} takes focus, how focus is shown, and where focus goes after each action.
+
+## Expected announcements
+
+| Screen reader     | Must hear |
+| ----------------- | --------- |
+| VoiceOver (macOS) | TODO      |
+| VoiceOver (iOS)   | TODO      |
+| TalkBack          | TODO      |
+| NVDA              | TODO      |
+
+## Known issues
+
+None known. List every gap from the pattern here instead of hiding it.
+`;

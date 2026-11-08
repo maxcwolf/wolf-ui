@@ -41,10 +41,12 @@ no Expo code loaded (ADR 0002). `apps/storybook` bundles it with Expo for iOS, A
 
 ### 1.3 Every component has the same shape
 
-`packages/ui/src/components/<Name>/` holds `<Name>.tsx`, `<Name>.test.tsx`, `<Name>.stories.tsx`
-and `index.ts`, the stories are titled `Components/<Name>`, and `components/index.ts` exports
-it. **Guard:** `src/__contracts__/component-structure.test.ts`. `yarn new:component` writes all of
-it (4.4).
+`packages/ui/src/components/<Name>/` holds `<Name>.tsx`, `<Name>.test.tsx`, `<Name>.stories.tsx`,
+`index.ts` and an `accessibility.md` spec with every section, the stories are titled
+`Components/<Name>`, `components/index.ts` exports it, and
+`docs/assistive-technology-testing.md` has a results section for it. **Guard:**
+`src/__contracts__/component-structure.test.ts`. `yarn new:component` writes all of it but the
+results section (4.4).
 
 The package's public API is snapshotted. **Guard:** `src/__contracts__/public-api.test.ts`; an
 API change is a snapshot change in the diff.

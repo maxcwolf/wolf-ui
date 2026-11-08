@@ -1,12 +1,19 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { componentFile, indexFile, storiesFile, testFile } from './component-templates.mjs';
+import {
+  accessibilityFile,
+  componentFile,
+  indexFile,
+  storiesFile,
+  testFile,
+} from './component-templates.mjs';
 
 const PASCAL_CASE = /^[A-Z][A-Za-z0-9]*$/;
 
 /**
- * Writes a component folder (component, test, stories, index) into `<uiSrc>/components/` and
- * adds it to `components/index.ts`, keeping the exports sorted. Returns the files it wrote.
+ * Writes a component folder (component, test, stories, index, accessibility spec) into
+ * `<uiSrc>/components/` and adds it to `components/index.ts`, keeping the exports sorted. Returns
+ * the files it wrote.
  *
  * @param {{ name: string, uiSrc: string }} options
  * @returns {string[]}
@@ -26,6 +33,7 @@ export function newComponent({ name, uiSrc }) {
     [`${name}.test.tsx`]: testFile(name),
     [`${name}.stories.tsx`]: storiesFile(name),
     'index.ts': indexFile(name),
+    'accessibility.md': accessibilityFile(name),
   };
   for (const [file, content] of Object.entries(files)) {
     writeFileSync(join(dir, file), content);

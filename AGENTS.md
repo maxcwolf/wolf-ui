@@ -26,8 +26,15 @@ Expo and Expo web (ADR 0002). Nothing imports an app or `e2e/`.
 
 ## Where new code goes
 
-- **A new component:** `yarn new:component <Name>`. It writes the component, test, story and
-  index in `packages/ui/src/components/<Name>/` and exports it. Then build it from primitives.
+- **A new component:** `yarn new:component <Name>`. It writes the component, test, story,
+  index and accessibility spec stub in `packages/ui/src/components/<Name>/` and exports it. Then
+  build it from primitives.
+- **A component's accessibility spec:** `accessibility.md` beside the component: role, name and
+  states (web and native), keyboard, focus, expected announcements and known issues, based on the
+  matching WAI-ARIA APG pattern. A gap from the pattern goes under known issues.
+- **Manual assistive technology results:** a section per component in
+  [docs/assistive-technology-testing.md](docs/assistive-technology-testing.md). A new component,
+  or a change to a role, state, keyboard handling or announcement, needs a manual pass there.
 - **A new color:** add a semantic name to `ThemeColors` in `src/theme/colors.ts` and give it a
   value in every theme. If components render it on or under another color, add the pairing to
   `contrastRequirements` in `src/theme/contrast-audit.ts`. Never put a literal color in a
@@ -47,6 +54,8 @@ Expo and Expo web (ADR 0002). Nothing imports an app or `e2e/`.
 - Accessibility is a requirement, not polish. Every control has an accessible name and role,
   a 44dp touch target, text that scales to 200%, and a visible keyboard focus ring. Both themes
   meet WCAG 2.2 AA contrast. The checks are in [docs/accessibility.md](docs/accessibility.md).
+- Every component has an accessibility spec and a manual results section; changing what it
+  announces or how it handles keys means updating the spec and rerunning the manual pass.
 - Every component has a story. Stories are test fixtures: Jest renders each one in both themes
   for the accessibility contract, and Playwright runs axe and screenshots on each one.
 - Coverage thresholds in `packages/*/jest.config.cjs` are 100% and only go up.
