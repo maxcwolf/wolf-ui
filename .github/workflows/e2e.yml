@@ -30,6 +30,9 @@ jobs:
       - uses: actions/checkout@v4
       # The image ships Node 26 (no corepack) and a global yarn 1; --force replaces its shims.
       - run: npm install --global --force corepack@0.36.0 && corepack enable
+      # The checkout belongs to the runner user, not the container's root, so git (and the
+      # `lefthook install` postinstall) refuses it without this.
+      - run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - run: yarn install --immutable
       - run: yarn workspace @maxcwolf/storybook web:build
       - run: yarn workspace @maxcwolf/e2e playwright test
