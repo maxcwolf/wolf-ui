@@ -1,0 +1,3 @@
+progressbar, Loading, max value 1, min value 0
+graphics-document
+end of progressbar, Loading, max value 1, min value 0

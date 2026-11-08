@@ -9,6 +9,7 @@ import {
 import { Box, Text } from '../../primitives';
 import { useTheme } from '../../theme';
 import { FieldMessage, RevealButton } from './FieldParts';
+import { fieldDescription } from './field-description';
 import { fieldBackground, fieldBorderColor, inputTextStyle } from './text-input-styles';
 
 type FocusEvent = NativeSyntheticEvent<TargetedEvent>;
@@ -57,13 +58,14 @@ export function TextInput({
 }: TextInputProps) {
   const theme = useTheme();
   const labelId = useId();
+  const messageId = useId();
   const { focused, ...focusHandlers } = useFocus(onFocus, onBlur);
   const [revealed, setRevealed] = useState(false);
-  const hint = errorText ?? helperText;
+  const invalid = errorText !== undefined;
 
   return (
-    <Box gap="xs">
-      <Text variant="label" nativeID={labelId}>
+    <Box>
+      <Text variant="label" nativeID={labelId} marginBottom="xs">
         {label}
       </Text>
       <Box
@@ -74,13 +76,13 @@ export function TextInput({
         paddingRight={secure ? 'none' : 'm'}
         borderRadius="m"
         borderWidth={focused ? 2 : 1}
-        borderColor={fieldBorderColor({ focused, invalid: errorText !== undefined, disabled })}
+        borderColor={fieldBorderColor({ focused, invalid, disabled })}
         backgroundColor={fieldBackground(disabled)}
       >
         <RNTextInput
           accessibilityLabel={label}
           aria-labelledby={labelId}
-          {...(hint === undefined ? {} : { accessibilityHint: hint })}
+          {...fieldDescription({ messageId, message: errorText ?? helperText, invalid })}
           editable={!disabled}
           aria-disabled={disabled}
           secureTextEntry={secure && !revealed}
@@ -99,7 +101,7 @@ export function TextInput({
           />
         )}
       </Box>
-      <FieldMessage helperText={helperText} errorText={errorText} />
+      <FieldMessage id={messageId} helperText={helperText} errorText={errorText} />
     </Box>
   );
 }

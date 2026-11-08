@@ -37,6 +37,7 @@
     "e2e": "yarn workspace @maxcwolf/e2e e2e",
     "e2e:docker": "yarn workspace @maxcwolf/e2e e2e:docker",
     "e2e:update-screenshots": "yarn workspace @maxcwolf/e2e e2e:docker --update-snapshots",
+    "e2e:update-transcripts": "yarn workspace @maxcwolf/e2e e2e tests/screen-reader.spec.ts --update-snapshots",
     "changeset": "changeset",
     "release": "yarn build && changeset publish",
     "postinstall": "lefthook install"

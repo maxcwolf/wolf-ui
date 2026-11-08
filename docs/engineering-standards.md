@@ -85,16 +85,18 @@ first; a component's logic lives in a pure, tested sibling module (`button-style
 
 ### 3.1 The layers
 
-| Layer            | What it proves                                                                                              | Where                                                  | Runs                  |
-| ---------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | --------------------- |
-| Unit             | Pure functions (tokens, style helpers, theme resolution) behave per spec                                    | `*.test.ts` beside the source                          | `yarn test`           |
-| Component        | A component renders, responds and announces itself correctly, in both themes                                | `*.test.tsx`, React Native Testing Library             | `yarn test`           |
-| Contract         | Structure, public API, theme parity, contrast, and the accessibility contract on every story                | `packages/ui/src/__contracts__/`, `theme/*.test.ts`    | `yarn test`           |
-| Tooling          | Lint rules and generators do what they say; the generator's output passes every check                       | `eslint-rules/*.test.mjs`, `scripts/*.test.mjs`        | `yarn test:scripts`   |
-| Bundling         | The app bundles for iOS, Android and web under Expo                                                         | `expo export` in `.github/workflows/check.yml`         | CI                    |
-| End to end (web) | Every story renders without console errors and passes axe (WCAG 2.2 AA) in both themes; keyboard flows work | `e2e/tests/stories.spec.ts`, `keyboard.spec.ts`        | `yarn e2e`            |
-| Visual (web)     | Every story matches its baseline in both themes, desktop and mobile                                         | `e2e/tests/visual.spec.ts`, `e2e/__screenshots__/`     | `yarn e2e:docker`, CI |
-| Visual (native)  | Planned: targus captures on-device Storybook (6.1)                                                          | `apps/storybook/.rnstorybook` (capture switch present) | not yet               |
+| Layer                | What it proves                                                                                              | Where                                                     | Runs                  |
+| -------------------- | ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | --------------------- |
+| Unit                 | Pure functions (tokens, style helpers, theme resolution) behave per spec                                    | `*.test.ts` beside the source                             | `yarn test`           |
+| Component            | A component renders, responds and announces itself correctly, in both themes                                | `*.test.tsx`, React Native Testing Library                | `yarn test`           |
+| Contract             | Structure, public API, theme parity, contrast, and the accessibility contract on every story                | `packages/ui/src/__contracts__/`, `theme/*.test.ts`       | `yarn test`           |
+| Tooling              | Lint rules and generators do what they say; the generator's output passes every check                       | `eslint-rules/*.test.mjs`, `scripts/*.test.mjs`           | `yarn test:scripts`   |
+| Bundling             | The app bundles for iOS, Android and web under Expo                                                         | `expo export` in `.github/workflows/check.yml`            | CI                    |
+| End to end (web)     | Every story renders without console errors and passes axe (WCAG 2.2 AA) in both themes; keyboard flows work | `e2e/tests/stories.spec.ts`, `keyboard.spec.ts`           | `yarn e2e`            |
+| Visual (web)         | Every story matches its baseline in both themes, desktop and mobile                                         | `e2e/tests/visual.spec.ts`, `e2e/__screenshots__/`        | `yarn e2e:docker`, CI |
+| Screen reader        | Every story reads as its transcript says, no control without a name, live regions announce (ADR 0010)       | `e2e/tests/screen-reader.spec.ts`, `e2e/__transcripts__/` | `yarn e2e`, CI        |
+| Screen reader (real) | The main flows with VoiceOver and Safari                                                                    | `e2e/screen-readers/`, `screen-reader.yml`                | CI (macOS)            |
+| Visual (native)      | Planned: targus captures on-device Storybook (6.1)                                                          | `apps/storybook/.rnstorybook` (capture switch present)    | not yet               |
 
 Coverage thresholds are 100% for lines, branches, functions and statements in
 `packages/tokens/jest.config.cjs` and `packages/ui/jest.config.cjs`. **Guard:** `yarn test`
@@ -161,7 +163,8 @@ commitlint, Changesets, Renovate.
    (`EXPO_PUBLIC_TARGUS`) is already in `.rnstorybook/index.tsx`. Blocked on targus packages being
    published.
 2. **Native end to end**: Maestro flows (VoiceOver/TalkBack labels, Dynamic Type at the largest
-   size) against the on-device Storybook.
+   size) against the on-device Storybook. NVDA and Orca projects beside VoiceOver in
+   `e2e/screen-readers.config.ts` (ADR 0010).
 3. **Branch protection on `main`**: require `check`, `e2e`, `gitleaks`, `pr-title`, one approval
    and code-owner review, admins included.
 4. **A bare React Native example app** (`apps/bare`) built in CI, to prove the no-Expo path with a
