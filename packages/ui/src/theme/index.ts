@@ -1,7 +1,7 @@
 export { darkColors, lightColors, type ColorName, type ThemeColors } from './colors';
 export { auditThemeContrast, contrastRequirements, type ContrastFailure } from './contrast-audit';
 export { createWolfTheme, type ThemeOverrides } from './create-theme';
-export type { ThemePreference, ThemeSet } from './resolve-theme';
+export type { ColorMode, ThemeSet } from './resolve-theme';
 export {
   darkTheme,
   lightTheme,
@@ -14,8 +14,8 @@ export {
 } from './theme';
 export {
   ThemeProvider,
-  useThemeSwitcher,
+  useColorMode,
   type ThemeProviderProps,
-  type ThemeSwitcher,
+  type ColorModeState,
 } from './ThemeProvider';
 export { useTheme } from './use-theme';

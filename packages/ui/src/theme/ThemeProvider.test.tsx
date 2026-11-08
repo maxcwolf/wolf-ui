@@ -5,22 +5,22 @@ import * as ReactNative from 'react-native';
 import { Box, Pressable, Text } from '../primitives';
 import { createWolfTheme } from './create-theme';
 import { darkTheme, lightTheme } from './theme';
-import { ThemeProvider, useThemeSwitcher } from './ThemeProvider';
+import { ThemeProvider, useColorMode } from './ThemeProvider';
 
-/** Shows what useThemeSwitcher reports and offers one button per theme, like a settings screen. */
+/** Shows what useColorMode reports and offers one button per theme, like a settings screen. */
 function ThemeSettings() {
-  const { name, preference, names, setPreference } = useThemeSwitcher();
+  const { name, mode, names, setMode } = useColorMode();
   return (
     <Box testID="screen" backgroundColor="background">
       <Text variant="body">{`active: ${name}`}</Text>
-      <Text variant="body">{`preference: ${preference}`}</Text>
+      <Text variant="body">{`mode: ${mode}`}</Text>
       {['system', ...names].map((option) => (
         <Pressable
           key={option}
           role="button"
           accessibilityLabel={`Use ${option}`}
           onPress={() => {
-            setPreference(option);
+            setMode(option);
           }}
         />
       ))}
@@ -43,16 +43,16 @@ describe('ThemeProvider', () => {
       </ThemeProvider>,
     );
     expect(screen.getByText('active: dark')).toBeOnTheScreen();
-    expect(screen.getByText('preference: system')).toBeOnTheScreen();
+    expect(screen.getByText('mode: system')).toBeOnTheScreen();
     expect(screen.getByTestId('screen')).toHaveStyle({
       backgroundColor: darkTheme.colors.background,
     });
   });
 
   it('switches theme at runtime and reports the change', async () => {
-    const onPreferenceChange = jest.fn();
+    const onModeChange = jest.fn();
     await render(
-      <ThemeProvider onPreferenceChange={onPreferenceChange}>
+      <ThemeProvider onModeChange={onModeChange}>
         <ThemeSettings />
       </ThemeProvider>,
     );
@@ -60,17 +60,14 @@ describe('ThemeProvider', () => {
     expect(screen.getByTestId('screen')).toHaveStyle({
       backgroundColor: darkTheme.colors.background,
     });
-    expect(screen.getByText('preference: dark')).toBeOnTheScreen();
-    expect(onPreferenceChange).toHaveBeenCalledWith('dark');
+    expect(screen.getByText('mode: dark')).toBeOnTheScreen();
+    expect(onModeChange).toHaveBeenCalledWith('dark');
   });
 
   it('switches between any number of named themes', async () => {
     const sepia = createWolfTheme({ colors: { background: '#F4ECD8' } });
     await render(
-      <ThemeProvider
-        themes={{ light: lightTheme, dark: darkTheme, sepia }}
-        defaultPreference="sepia"
-      >
+      <ThemeProvider themes={{ light: lightTheme, dark: darkTheme, sepia }} defaultMode="sepia">
         <ThemeSettings />
       </ThemeProvider>,
     );
@@ -81,13 +78,13 @@ describe('ThemeProvider', () => {
 
   it('can be controlled by its parent', async () => {
     const { rerender } = await render(
-      <ThemeProvider preference="light">
+      <ThemeProvider mode="light">
         <ThemeSettings />
       </ThemeProvider>,
     );
     expect(screen.getByText('active: light')).toBeOnTheScreen();
     await rerender(
-      <ThemeProvider preference="dark">
+      <ThemeProvider mode="dark">
         <ThemeSettings />
       </ThemeProvider>,
     );
@@ -95,11 +92,11 @@ describe('ThemeProvider', () => {
   });
 });
 
-describe('useThemeSwitcher', () => {
+describe('useColorMode', () => {
   it('explains itself when used outside a ThemeProvider', async () => {
     jest.spyOn(console, 'error').mockImplementation(() => undefined);
     await expect(render(<ThemeSettings />)).rejects.toThrow(
-      'useThemeSwitcher must be used inside a wolf-ui ThemeProvider.',
+      'useColorMode must be used inside a wolf-ui ThemeProvider.',
     );
   });
 });

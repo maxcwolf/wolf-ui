@@ -1,5 +1,5 @@
 heading, Appearance, level 1
-Showing "light" (preference: light)
+Showing "light" (mode: light)
 button, system
 button, light
 button, dark

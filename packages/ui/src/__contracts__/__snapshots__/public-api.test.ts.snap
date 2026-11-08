@@ -20,7 +20,7 @@ exports[`exports exactly the public API 1`] = `
   "iconNames",
   "lightColors",
   "lightTheme",
+  "useColorMode",
   "useTheme",
-  "useThemeSwitcher",
 ]
 `;

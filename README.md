@@ -53,8 +53,8 @@ export default function App() {
 Switch theme anywhere below the provider:
 
 ```tsx
-const { setPreference } = useThemeSwitcher();
-setPreference('dark'); // or 'light', 'system', or any theme you registered
+const { setMode } = useColorMode();
+setMode('dark'); // or 'light', 'system', or any theme you registered
 ```
 
 ## Components
