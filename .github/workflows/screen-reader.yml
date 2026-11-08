@@ -35,6 +35,10 @@ jobs:
       - run: npx --yes @guidepup/setup@0.29.3 setup --ci --macos-record
       - run: corepack enable
       - run: yarn install --immutable
+      # Downloads the VoiceOver preferences image that matches the installed @guidepup/guidepup,
+      # so it must run after the install.
+      - run: npx --yes @guidepup/setup@0.29.3 install
+        working-directory: e2e
       - run: yarn workspace @maxcwolf/e2e playwright install webkit
       - run: yarn workspace @maxcwolf/storybook web:build
       - run: yarn workspace @maxcwolf/e2e screen-readers
