@@ -49,14 +49,11 @@ reader and version, so manual results record what was really said.
 | Loading  | "Continue", button, busy/disabled | "... dimmed" (+ busy)  | "... disabled" (+ busy) | "... unavailable" (+ busy) |
 
 A reader must not say "not busy", and must not read the icons. The virtual reader's web
-transcripts (`e2e/__transcripts__/components-button--*.txt`, added by maxcwolf/wolf-ui#1) read
+transcripts (`e2e/__transcripts__/components-button--*.txt`) read
 "button, Continue" and, while loading, "button, Continue, busy, disabled".
 
 ## Known issues
 
-- **"not busy" on every button (main only).** `aria-busy={loading}` sets `aria-busy="false"` when
-  not loading, which some readers announce. Fixed in maxcwolf/wolf-ui#1 by setting it only while
-  loading.
 - **Disabled buttons leave the Tab order on the web.** React Native Web sets `tabindex="-1"`
   when `disabled`, so keyboard and screen reader users tabbing through a form do not find a
   disabled submit button. APG allows this, but it hides why an action is unavailable. A loading

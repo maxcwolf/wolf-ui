@@ -1,0 +1,53 @@
+name: screen-reader
+
+# Real VoiceOver in Safari, driven by Guidepup (e2e/screen-readers/). The virtual screen reader
+# suite in e2e.yml covers every story on every pull request; this one checks the main promises
+# with a real screen reader. It runs on pull requests that change components or the suite, every
+# Monday, and on demand. @guidepup/setup changes the runner's system settings so VoiceOver can be
+# scripted; it is pinned to the version Guidepup's own CI uses.
+on:
+  pull_request:
+    paths:
+      - 'packages/ui/src/**'
+      - 'e2e/screen-readers/**'
+      - 'e2e/screen-readers.config.ts'
+      - '.github/workflows/screen-reader.yml'
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+concurrency:
+  group: screen-reader-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  voiceover:
+    runs-on: macos-15
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+      - run: npx --yes @guidepup/setup@0.29.3 setup --ci --macos-record
+      - run: corepack enable
+      - run: yarn install --immutable
+      # Downloads the VoiceOver preferences image that matches the installed @guidepup/guidepup,
+      # so it must run after the install.
+      - run: npx --yes @guidepup/setup@0.29.3 install
+        working-directory: e2e
+      - run: yarn workspace @maxcwolf/e2e playwright install webkit
+      - run: yarn workspace @maxcwolf/storybook web:build
+      - run: yarn workspace @maxcwolf/e2e screen-readers
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: voiceover
+          path: |
+            e2e/playwright-report
+            e2e/test-results
+            recordings
+          retention-days: 14

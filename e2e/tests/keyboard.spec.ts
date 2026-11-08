@@ -22,7 +22,7 @@ test('a button takes keyboard focus with a visible ring, and Enter presses it', 
   await page.keyboard.press('Tab');
   await page.keyboard.press('Tab');
   await page.keyboard.press('Enter');
-  await expect(page.getByText('Showing "dark" (preference: dark)')).toBeVisible();
+  await expect(page.getByText('Showing "dark" (mode: dark)')).toBeVisible();
 });
 
 test('a mouse click does not leave a focus ring behind', async ({ page }) => {

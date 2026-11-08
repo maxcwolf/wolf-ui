@@ -37,8 +37,7 @@ Never takes focus. Showing or hiding a spinner does not move focus.
 | NVDA              | "Loading, progress bar" (no percentage)             |
 
 The spinner does not announce itself when it appears: it is not a live region. The virtual
-reader's transcripts (`e2e/__transcripts__/components-spinner--*.txt`, added by
-maxcwolf/wolf-ui#1) read "progressbar, Loading, max value 1, min value 0".
+reader's transcripts (`e2e/__transcripts__/components-spinner--*.txt`) read "progressbar, Loading, max value 1, min value 0".
 
 ## Known issues
 
@@ -50,7 +49,7 @@ maxcwolf/wolf-ui#1) read "progressbar, Loading, max value 1, min value 0".
   max, which some readers speak. An indeterminate progressbar should have neither.
 - **The animation is read inside the progressbar.** The virtual reader reads a
   "graphics-document" inside it. Real readers treat a progressbar's children as presentational,
-  so this is expected not to be heard; confirm in the manual pass (ADR 0010 in maxcwolf/wolf-ui#1).
+  so this is expected not to be heard; confirm in the manual pass (ADR 0010).
 - **Reduced motion.** Spinner relies on the platform indicator and does not check the reduced
   motion setting itself. Whether each platform slows or stops it is not yet checked;
   `docs/accessibility.md` requires respecting the setting for components that animate.

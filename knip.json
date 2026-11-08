@@ -12,11 +12,7 @@
       "ignoreDependencies": ["@babel/core"]
     },
     "packages/ui": {
-      "entry": [
-        "src/**/*.test.{ts,tsx}",
-        "src/**/*.stories.tsx",
-        "src/primitives/focus-visible.web.ts"
-      ],
+      "entry": ["src/**/*.test.{ts,tsx}", "src/**/*.stories.tsx", "src/**/*.web.ts"],
       "project": ["src/**/*.{ts,tsx}"],
       "ignoreDependencies": ["@babel/core"]
     },
@@ -32,7 +28,7 @@
       "metro": false
     },
     "e2e": {
-      "entry": ["tests/**/*.spec.ts"],
+      "entry": ["tests/**/*.spec.ts", "screen-readers/**/*.spec.ts"],
       "project": ["**/*.{ts,mjs}"]
     }
   }

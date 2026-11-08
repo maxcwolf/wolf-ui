@@ -25,26 +25,29 @@ changes their appearance setting. On Android, Expo apps need `expo-system-ui` an
 ## Let the user choose
 
 ```tsx
-import { useThemeSwitcher } from '@maxcwolf/ui-react-native';
+import { useColorMode } from '@maxcwolf/ui-react-native';
 
 function AppearanceSetting() {
-  const { name, preference, names, setPreference } = useThemeSwitcher();
-  // name: the theme showing now ('light'); preference: what was chosen ('system')
+  const { mode, setMode, name, names } = useColorMode();
+  // mode: what was chosen ('system'); name: the theme showing now ('light')
   // names: every theme the provider has (['light', 'dark'])
-  return <Button onPress={() => setPreference('dark')}>Dark</Button>;
+  return <Button onPress={() => setMode('dark')}>Dark</Button>;
 }
 ```
+
+`useColorMode()` is for app code such as a settings screen. Components read the active theme's
+tokens with `useTheme()` and never change the mode.
 
 To remember the choice across launches, persist it yourself and hand it back:
 
 ```tsx
-<ThemeProvider defaultPreference={saved ?? 'system'} onPreferenceChange={save}>
+<ThemeProvider defaultMode={saved ?? 'system'} onModeChange={save}>
 ```
 
-Or control it completely with `preference`, for example from your own settings store:
+Or control it completely with `mode`, for example from your own settings store:
 
 ```tsx
-<ThemeProvider preference={settings.theme}>
+<ThemeProvider mode={settings.theme}>
 ```
 
 ## Make a brand theme
@@ -74,8 +77,8 @@ variant is merged, so `{ heading1: { fontSize: 40 } }` keeps its weight and line
 `themes` takes any names. `light` and `dark` back `'system'`; the rest are chosen by name.
 
 ```tsx
-<ThemeProvider themes={{ light, dark, highContrast, sepia }} defaultPreference="system">
-// later: setPreference('highContrast')
+<ThemeProvider themes={{ light, dark, highContrast, sepia }} defaultMode="system">
+// later: setMode('highContrast')
 ```
 
 ## Check your theme's contrast

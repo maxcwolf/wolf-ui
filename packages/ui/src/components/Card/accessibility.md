@@ -38,8 +38,7 @@ card instead, so the card does not become one large control with a long name.
 | ------------- | -------------------------------------------------------------------------------------------------------------------- |
 | All           | The children in order, with no extra words for the card: "Weekly summary", "You completed 12 of 14 tasks this week." |
 
-The virtual reader's transcripts (`e2e/__transcripts__/components-card--*.txt`, added by
-maxcwolf/wolf-ui#1) read exactly those two lines for every variant.
+The virtual reader's transcripts (`e2e/__transcripts__/components-card--*.txt`) read exactly those two lines for every variant.
 
 ## Known issues
 

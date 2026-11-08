@@ -17,6 +17,13 @@ const restyleOnlyInTheme = {
     'Use useTheme / ThemeProvider from the theme layer (src/theme), which types the theme and adds theme switching (ADR 0005).',
 };
 
+const colorModeOnlyInApps = {
+  group: ['**/theme', '**/theme/*'],
+  importNames: ['useColorMode'],
+  message:
+    'Components read tokens with useTheme(); changing the color mode belongs to the app (ADR 0005).',
+};
+
 const testingLibraryRender = {
   name: '@testing-library/react-native',
   importNames: ['render'],
@@ -142,7 +149,19 @@ export default tseslint.config(
     rules: {
       'no-restricted-imports': [
         'error',
-        { paths: [restyleOnlyInTheme, reactNativeViewsInComponents] },
+        {
+          paths: [restyleOnlyInTheme, reactNativeViewsInComponents],
+          patterns: [colorModeOnlyInApps],
+        },
+      ],
+    },
+  },
+  {
+    files: ['packages/ui/src/primitives/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        { paths: [restyleOnlyInTheme], patterns: [colorModeOnlyInApps] },
       ],
     },
   },

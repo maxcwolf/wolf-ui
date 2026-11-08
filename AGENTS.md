@@ -15,7 +15,7 @@ packages/ui         @maxcwolf/ui-react-native, in layers (ADR 0003):
   src/primitives/     Box, Text, Pressable: the only wrappers of React Native views
   src/components/     one folder per component, built from primitives and theme names only
 apps/storybook      Expo app: on-device Storybook (iOS, Android) and web Storybook (react-native-web)
-e2e/                Playwright against the built web Storybook: axe, keyboard, visual
+e2e/                Playwright against the built web Storybook: axe, keyboard, screen reader, visual
 scripts/            yarn new:component and its tests
 eslint-rules/       local lint rules (wolf/*) and their tests
 ```
@@ -72,6 +72,10 @@ Expo and Expo web (ADR 0002). Nothing imports an app or `e2e/`.
 test -u`) so the change is visible in review.
 - After adding or removing a story file, run `yarn workspace @maxcwolf/storybook
 storybook:generate`.
+- After changing what a component announces, update transcripts with
+  `yarn e2e:update-transcripts` and read every changed file in `e2e/__transcripts__/`. Never run
+  `yarn workspace @maxcwolf/e2e screen-readers` locally: VoiceOver automation needs system
+  settings only the CI runner has.
 - After a visual change, update screenshots with `yarn e2e:update-screenshots` (Docker) and
   look at every changed PNG before committing.
 - Commits and PR titles are Conventional Commits: `feat:`, `fix:`, `refactor:`, `docs:`,
@@ -81,13 +85,14 @@ storybook:generate`.
 
 ## Commands
 
-| Command                           | What it does                                                       |
-| --------------------------------- | ------------------------------------------------------------------ |
-| `yarn check`                      | every guard; must exit 0                                           |
-| `yarn test`                       | unit, contract and script tests with coverage                      |
-| `yarn new:component <Name>`       | scaffold a component that already meets the contracts              |
-| `yarn storybook:web`              | web Storybook on http://localhost:6006                             |
-| `yarn storybook:ios` / `:android` | on-device Storybook (builds the Expo dev app)                      |
-| `yarn e2e`                        | build web Storybook, run axe, keyboard and smoke tests on the host |
-| `yarn e2e:docker`                 | the same plus visual tests, in the pinned Playwright image         |
-| `yarn e2e:update-screenshots`     | rewrite visual baselines (Docker)                                  |
+| Command                           | What it does                                                                      |
+| --------------------------------- | --------------------------------------------------------------------------------- |
+| `yarn check`                      | every guard; must exit 0                                                          |
+| `yarn test`                       | unit, contract and script tests with coverage                                     |
+| `yarn new:component <Name>`       | scaffold a component that already meets the contracts                             |
+| `yarn storybook:web`              | web Storybook on http://localhost:6006                                            |
+| `yarn storybook:ios` / `:android` | on-device Storybook (builds the Expo dev app)                                     |
+| `yarn e2e`                        | build web Storybook, run axe, keyboard, screen reader and smoke tests on the host |
+| `yarn e2e:docker`                 | the same plus visual tests, in the pinned Playwright image                        |
+| `yarn e2e:update-screenshots`     | rewrite visual baselines (Docker)                                                 |
+| `yarn e2e:update-transcripts`     | rewrite screen reader transcripts                                                 |

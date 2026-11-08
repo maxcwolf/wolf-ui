@@ -35,8 +35,7 @@ Never takes focus. A labelled icon is reachable only with a screen reader's read
 | Labelled, e.g. "Warning" | "Warning", image (VoiceOver "image", TalkBack "image", NVDA "graphic") |
 | Inside a `Button`        | nothing; only the button's text is the name                            |
 
-The virtual reader's transcripts (`e2e/__transcripts__/components-icon--*.txt`, added by
-maxcwolf/wolf-ui#1): the Default story is empty, Labelled reads "image, Warning", and the All story
+The virtual reader's transcripts (`e2e/__transcripts__/components-icon--*.txt`): the Default story is empty, Labelled reads "image, Warning", and the All story
 reads only the caption under each icon.
 
 ## Known issues

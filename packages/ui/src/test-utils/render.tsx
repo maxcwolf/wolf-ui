@@ -4,11 +4,11 @@ import {
   type RenderResult,
 } from '@testing-library/react-native';
 import type { ReactElement } from 'react';
-import { ThemeProvider, type ThemePreference, type ThemeSet } from '../theme';
+import { ThemeProvider, type ColorMode, type ThemeSet } from '../theme';
 
 interface Options extends Omit<RenderOptions, 'wrapper'> {
   /** The theme to render under. Defaults to `'light'`, so a test never depends on the device. */
-  theme?: ThemePreference;
+  theme?: ColorMode;
   themes?: ThemeSet;
 }
 
@@ -20,7 +20,7 @@ export function render(
   return rtlRender(ui, {
     ...options,
     wrapper: ({ children }) => (
-      <ThemeProvider preference={theme} {...(themes ? { themes } : {})}>
+      <ThemeProvider mode={theme} {...(themes ? { themes } : {})}>
         {children}
       </ThemeProvider>
     ),

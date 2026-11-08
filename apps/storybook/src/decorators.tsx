@@ -1,14 +1,10 @@
-import { Box, ThemeProvider, type ThemePreference } from '@maxcwolf/ui-react-native';
+import { Box, ThemeProvider, type ColorMode } from '@maxcwolf/ui-react-native';
 import type { Decorator } from '@storybook/react';
 
 /** The themes the toolbar (web) and captures can pick. `system` follows the device. */
-export const themeOptions = [
-  'system',
-  'light',
-  'dark',
-] as const satisfies readonly ThemePreference[];
+export const themeOptions = ['system', 'light', 'dark'] as const satisfies readonly ColorMode[];
 
-const toPreference = (value: unknown): ThemePreference =>
+const toMode = (value: unknown): ColorMode =>
   themeOptions.find((option) => option === value) ?? 'system';
 
 /**
@@ -17,11 +13,11 @@ const toPreference = (value: unknown): ThemePreference =>
  * and tested in every theme; on a device, `system` follows the simulator's appearance.
  */
 export const withTheme: Decorator = (Story, context) => {
-  const preference = toPreference(context.globals.theme);
+  const mode = toMode(context.globals.theme);
   return (
-    <ThemeProvider preference={preference}>
+    <ThemeProvider mode={mode}>
       {/* e2e waits for this id, so axe and screenshots never see the previous theme. */}
-      <Box testID={`story-theme-${preference}`} flex={1} backgroundColor="background" padding="l">
+      <Box testID={`story-theme-${mode}`} flex={1} backgroundColor="background" padding="l">
         <Story />
       </Box>
     </ThemeProvider>

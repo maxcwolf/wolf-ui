@@ -1,21 +1,27 @@
 import { defineConfig, devices } from '@playwright/test';
-
-const port = 6106;
+import { baseURL, reporter, webServer } from './server';
 
 // Guard file (docs/engineering-standards.md 3). Visual specs run only with VISUAL=1, which
 // run-in-docker.sh sets, so a screenshot is always compared with one from the same image.
+// Screenshots are kept per project; screen reader transcripts (text snapshots) are not, because
+// what a screen reader says does not depend on the viewport.
 export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
-  reporter: process.env.CI ? [['github'], ['html', { open: 'never' }]] : 'list',
-  snapshotPathTemplate: '{testDir}/../__screenshots__/{projectName}/{arg}{ext}',
+  reporter,
+  snapshotPathTemplate: '{testDir}/../__transcripts__/{arg}{ext}',
   expect: {
-    toHaveScreenshot: { animations: 'disabled', caret: 'hide', maxDiffPixelRatio: 0.001 },
+    toHaveScreenshot: {
+      animations: 'disabled',
+      caret: 'hide',
+      maxDiffPixelRatio: 0.001,
+      pathTemplate: '{testDir}/../__screenshots__/{projectName}/{arg}{ext}',
+    },
   },
   use: {
-    baseURL: `http://127.0.0.1:${port}`,
+    baseURL,
     trace: 'retain-on-failure',
   },
   projects: [
@@ -25,9 +31,5 @@ export default defineConfig({
     },
     { name: 'mobile', use: { ...devices['Pixel 7'] } },
   ],
-  webServer: {
-    command: `node serve.mjs ../apps/storybook/storybook-static ${port}`,
-    url: `http://127.0.0.1:${port}/index.json`,
-    reuseExistingServer: !process.env.CI,
-  },
+  webServer,
 });

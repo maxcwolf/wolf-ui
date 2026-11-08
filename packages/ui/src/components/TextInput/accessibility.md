@@ -8,15 +8,15 @@ pattern. Manual results:
 
 ## Role, name and states
 
-| Aspect      | Web (React Native Web output)                                         | iOS / Android (React Native props)                   |
-| ----------- | --------------------------------------------------------------------- | ---------------------------------------------------- |
-| Role        | native `<input>` (textbox; `type="password"` while hidden)            | native text field                                    |
-| Name        | `aria-labelledby` → the visible label; also `aria-label` from `label` | `accessibilityLabel` = `label`                       |
-| Description | none on main (see known issues)                                       | `accessibilityHint` = `errorText`, else `helperText` |
-| Disabled    | `aria-disabled="true"`, `readonly` (not editable), stays focusable    | `editable={false}`, `aria-disabled`                  |
-| Invalid     | none on main (see known issues); error text shown in place of helper  | the error is the hint; red border                    |
-| Secure      | `type="password"` until revealed                                      | `secureTextEntry` until revealed                     |
-| Error text  | `role="alert"`, polite live region                                    | `role="alert"`, `accessibilityLiveRegion="polite"`   |
+| Aspect      | Web (React Native Web output)                                         | iOS / Android (React Native props)                       |
+| ----------- | --------------------------------------------------------------------- | -------------------------------------------------------- |
+| Role        | native `<input>` (textbox; `type="password"` while hidden)            | native text field                                        |
+| Name        | `aria-labelledby` → the visible label; also `aria-label` from `label` | `accessibilityLabel` = `label`                           |
+| Description | `aria-describedby` → the error, else the helper text                  | `accessibilityHint` = `errorText`, else `helperText`     |
+| Disabled    | `aria-disabled="true"`, `readonly` (not editable), stays focusable    | `editable={false}`, `aria-disabled`                      |
+| Invalid     | `aria-invalid="true"` while there is an error                         | the error is the hint; red border                        |
+| Secure      | `type="password"` until revealed                                      | `secureTextEntry` until revealed                         |
+| Error text  | `role="alert"`, inside an always-mounted `aria-live="polite"` region  | `role="alert"` inside `accessibilityLiveRegion="polite"` |
 
 The reveal button (only when `secure`):
 
@@ -66,21 +66,17 @@ The reveal button (only when `secure`):
 
 Per reader: VoiceOver says "text field" and "dimmed"; TalkBack says "edit box" and "disabled";
 NVDA says "edit" and "unavailable", and "invalid entry" for `aria-invalid`. The virtual reader's
-web transcripts are `e2e/__transcripts__/components-textinput--*.txt` (added by
-maxcwolf/wolf-ui#1).
+web transcripts are `e2e/__transcripts__/components-textinput--*.txt`.
 
 ## Known issues
 
-- **Helper and error text are not tied to the field on the web (main only).** React Native Web
-  drops `accessibilityHint`, so on the web the helper or error text is read only as separate text
-  after the field, not when the field is focused. Fixed in maxcwolf/wolf-ui#1 with
-  `aria-describedby`.
-- **Invalid fields are not marked invalid on the web (main only).** No `aria-invalid`, so readers
-  do not say "invalid". Fixed in maxcwolf/wolf-ui#1. iOS and Android have no invalid state at
-  all; the error reaches them only as the hint and the live region.
-- **The error is both an alert and a polite live region.** `role="alert"` implies
-  `aria-live="assertive"`, so browsers may announce it assertively despite
-  `accessibilityLiveRegion="polite"`. Some readers announce an error twice (alert plus hint) when
+- **iOS and Android have no invalid state.** The error reaches them only as the hint and, on
+  Android, the live region. iOS ignores live regions, so an error that appears while the field is
+  focused is not announced on iOS; it needs `AccessibilityInfo.announceForAccessibility`.
+- **The error is an alert inside a polite live region.** The region is always mounted, because
+  VoiceOver in Safari skips a live region that arrives with its text (found by the VoiceOver
+  suite). `role="alert"` implies `aria-live="assertive"`, so a reader may still announce it
+  assertively. Some readers announce an error twice (alert plus hint) when
   it appears on a focused field. Needs manual testing.
 - **The label is announced twice by some web readers.** The visible label is a separate text node
   and also the field's name, so browse mode reads "Email" and then "Email, edit". This matches

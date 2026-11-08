@@ -1,0 +1,8 @@
+heading, Appearance, level 1
+Showing "light" (mode: light)
+button, system
+button, light
+button, dark
+button, brand
+button, brandDark
+Every component follows the active theme.

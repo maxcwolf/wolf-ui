@@ -34,8 +34,7 @@ matches the visual order because Stack only lays out in `row` or `column`, never
 | ------------- | ---------------------------------------------------------- |
 | All           | The children only, in order. Nothing for the Stack itself. |
 
-The virtual reader's transcripts (`e2e/__transcripts__/components-stack--*.txt`, added by
-maxcwolf/wolf-ui#1) are empty, because the story's children are coloured boxes with no content.
+The virtual reader's transcripts (`e2e/__transcripts__/components-stack--*.txt`) are empty, because the story's children are coloured boxes with no content.
 
 ## Known issues
 

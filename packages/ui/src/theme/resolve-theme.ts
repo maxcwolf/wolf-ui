@@ -4,7 +4,7 @@ import type { Theme } from './theme';
 export type ThemeSet = { light: Theme; dark: Theme } & Partial<Record<string, Theme>>;
 
 /** `'system'` follows the device; any other value names a theme in the set. */
-export type ThemePreference = 'system' | 'light' | 'dark' | (string & {});
+export type ColorMode = 'system' | 'light' | 'dark' | (string & {});
 
 export type SystemColorScheme = 'light' | 'dark' | 'unspecified' | null | undefined;
 
@@ -13,13 +13,13 @@ export interface ResolvedTheme {
   theme: Theme;
 }
 
-/** Picks the theme for a preference. Pure, so every branch is unit-tested. */
+/** Picks the theme for a mode. Pure, so every branch is unit-tested. */
 export function resolveTheme(
   themes: ThemeSet,
-  preference: ThemePreference,
+  mode: ColorMode,
   system: SystemColorScheme,
 ): ResolvedTheme {
-  const name = preference === 'system' ? (system === 'dark' ? 'dark' : 'light') : preference;
+  const name = mode === 'system' ? (system === 'dark' ? 'dark' : 'light') : mode;
   const theme = themes[name];
   if (!theme) {
     const known = Object.keys(themes).join(', ');
