@@ -54,11 +54,16 @@ test('a labelled icon is read as an image', async ({ page, voiceOver }) => {
 
 test('an error that appears when leaving a field is announced', async ({ page, voiceOver }) => {
   await open(page, voiceOver, 'components-textinput--validation');
-  await page.getByLabel('Email', { exact: true }).focus();
+  const field = page.getByLabel('Email', { exact: true });
+  await field.focus();
   await page.keyboard.type('max');
-  await voiceOver.clearSpokenPhraseLog();
-  await page.keyboard.press('Tab');
+  // Guidepup records speech only during its own commands, or inside `capture` for an action
+  // driven from Playwright. A live region may speak after the capture settles, so also read
+  // what VoiceOver said last.
+  const { spokenPhrase } = await voiceOver.capture(() => field.blur(), { capture: true });
   await expect
-    .poll(async () => (await voiceOver.spokenPhraseLog()).join(' | '), { timeout: 15_000 })
+    .poll(async () => `${spokenPhrase} | ${await voiceOver.lastSpokenPhrase()}`, {
+      timeout: 15_000,
+    })
     .toMatch(/Enter a valid email address/);
 });
