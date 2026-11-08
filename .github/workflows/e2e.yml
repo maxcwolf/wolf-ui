@@ -28,7 +28,8 @@ jobs:
       VISUAL: '1'
     steps:
       - uses: actions/checkout@v4
-      - run: corepack enable
+      # The image ships Node 26 (no corepack) and a global yarn 1; --force replaces its shims.
+      - run: npm install --global --force corepack@0.36.0 && corepack enable
       - run: yarn install --immutable
       - run: yarn workspace @maxcwolf/storybook web:build
       - run: yarn workspace @maxcwolf/e2e playwright test
