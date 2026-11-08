@@ -1,0 +1,8 @@
+heading1: The quick brown wolf
+heading2: The quick brown wolf
+heading3: The quick brown wolf
+body: The quick brown wolf
+bodyStrong: The quick brown wolf
+label: The quick brown wolf
+caption: The quick brown wolf
+button: The quick brown wolf

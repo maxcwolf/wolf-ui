@@ -1,0 +1,5 @@
+Email
+textbox, Email, max@, Enter a valid email address., invalid
+alert
+Enter a valid email address.
+end of alert

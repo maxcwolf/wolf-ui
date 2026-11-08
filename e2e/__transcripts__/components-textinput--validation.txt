@@ -1,0 +1,3 @@
+Email
+textbox, Email, We never share your email., placeholder you@example.com
+We never share your email.

@@ -12,3 +12,4 @@
 | [0007](0007-stories-are-the-test-fixtures.md)             | Stories are the test fixtures                                       |
 | [0008](0008-accessibility-guarded-at-every-layer.md)      | Accessibility is guarded at every layer                             |
 | [0009](0009-visual-regression.md)                         | Visual regression: Playwright in Docker now, targus on device next  |
+| [0010](0010-screen-reader-testing.md)                     | Screen reader testing: a virtual reader on every story, VoiceOver   |

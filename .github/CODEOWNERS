@@ -9,6 +9,8 @@
 /packages/*/jest.config.cjs     @maxcwolf
 /packages/ui/src/__contracts__/ @maxcwolf
 /e2e/playwright.config.ts       @maxcwolf
+/e2e/screen-readers.config.ts   @maxcwolf
+/e2e/server.ts                  @maxcwolf
 /scripts/agent-lint-hook.mjs    @maxcwolf
 /docs/adr/                      @maxcwolf
 /docs/engineering-standards.md  @maxcwolf

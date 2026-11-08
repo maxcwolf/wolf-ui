@@ -68,7 +68,8 @@ export function Button({
     <Pressable
       role="button"
       aria-disabled={inactive}
-      aria-busy={loading}
+      // Only while loading: aria-busy=false is read out as "not busy" on every button.
+      {...(loading ? { 'aria-busy': true } : {})}
       disabled={inactive}
       {...(onPress ? { onPress } : {})}
       hitSlop={layout.hitSlop}

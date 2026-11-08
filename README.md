@@ -76,7 +76,7 @@ yarn check                   # every guard: types, lint, format, architecture, d
 yarn new:component Badge     # scaffold a component that already passes every check
 yarn storybook:web           # web Storybook at http://localhost:6006
 yarn storybook:ios           # on-device Storybook in the iOS simulator (also :android)
-yarn e2e                     # axe, keyboard and smoke tests over every story
+yarn e2e                     # axe, keyboard, screen reader and smoke tests over every story
 yarn e2e:docker              # the same plus screenshot tests, in the pinned Playwright image
 ```
 
@@ -88,6 +88,7 @@ yarn e2e:docker              # the same plus screenshot tests, in the pinned Pla
 | Contracts       | Every story rendered in both themes for accessibility; component structure; public API snapshot; theme contrast and parity                                       |
 | Bundling        | `expo export` for iOS, Android and web in CI                                                                                                                     |
 | Web end to end  | Playwright + axe-core over every story, both themes, desktop and mobile; keyboard flows                                                                          |
+| Screen reader   | A virtual screen reader transcript for every story and flow tests on every PR; real VoiceOver on macOS ([ADR 0010](docs/adr/0010-screen-reader-testing.md))      |
 | Visual          | Playwright screenshots in Docker now; on-device captures with [targus](https://github.com/maxcwolf/targus) next ([ADR 0009](docs/adr/0009-visual-regression.md)) |
 
 ### Release
