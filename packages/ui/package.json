@@ -1,6 +1,6 @@
 {
   "name": "@maxcwolf/ui-react-native",
-  "version": "2.0.0-alpha.0",
+  "version": "2.0.0",
   "description": "Themeable, type-safe React Native components built on Restyle. Bare React Native, Expo and react-native-web.",
   "license": "MIT",
   "author": "Max Wolf <maxcharleswolf@gmail.com>",
