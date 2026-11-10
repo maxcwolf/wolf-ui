@@ -1,5 +1,5 @@
 import { minTouchTarget } from '@maxcwolf/ui-tokens';
-import { useId, useState } from 'react';
+import { useId, useState, type ComponentRef, type Ref } from 'react';
 import {
   TextInput as RNTextInput,
   type NativeSyntheticEvent,
@@ -8,16 +8,21 @@ import {
 } from 'react-native';
 import { Box, Text } from '../../primitives';
 import { useTheme } from '../../theme';
-import { FieldMessage, RevealButton } from './FieldParts';
+import { FieldMessage, RevealButton, defaultRevealLabels, type RevealLabels } from './FieldParts';
 import { fieldDescription } from './field-description';
 import { fieldBackground, fieldBorderColor, inputTextStyle } from './text-input-styles';
 
 type FocusEvent = NativeSyntheticEvent<TargetedEvent>;
 
-export type TextInputProps = Omit<
-  RNTextInputProps,
-  'style' | 'placeholderTextColor' | 'editable' | 'secureTextEntry' | 'onFocus' | 'onBlur'
-> & {
+/** What a `ref` on a `TextInput` points at: the native input, with `focus()` and `blur()`. */
+export type TextInputRef = ComponentRef<typeof RNTextInput>;
+
+type OwnedProp =
+  'style' | 'placeholderTextColor' | 'editable' | 'secureTextEntry' | 'onFocus' | 'onBlur' | 'ref';
+
+export type TextInputProps = Omit<RNTextInputProps, OwnedProp> & {
+  /** The native input, so a form can move focus: `ref.current?.focus()`. */
+  ref?: Ref<TextInputRef>;
   /** Visible label, also the accessible name. Every field has one (WCAG 1.3.1, 3.3.2). */
   label: string;
   helperText?: string;
@@ -26,6 +31,8 @@ export type TextInputProps = Omit<
   disabled?: boolean;
   /** Hides the value (passwords) and adds a button to reveal it. */
   secure?: boolean;
+  /** Names of the reveal button, for translation. Defaults to "Show password" / "Hide password". */
+  revealLabels?: RevealLabels;
   onFocus?: (event: FocusEvent) => void;
   onBlur?: (event: FocusEvent) => void;
 };
@@ -52,6 +59,7 @@ export function TextInput({
   errorText,
   disabled = false,
   secure = false,
+  revealLabels = defaultRevealLabels,
   onFocus,
   onBlur,
   ...rest
@@ -94,6 +102,7 @@ export function TextInput({
         {secure && (
           <RevealButton
             revealed={revealed}
+            labels={revealLabels}
             disabled={disabled}
             onToggle={() => {
               setRevealed((value) => !value);

@@ -4,7 +4,7 @@ import {
   useRestyle,
   type BoxProps as RestyleBoxProps,
 } from '@shopify/restyle';
-import { useState, type ReactNode } from 'react';
+import { useState, type ComponentRef, type ReactNode, type Ref } from 'react';
 import {
   Pressable as RNPressable,
   type PressableProps as RNPressableProps,
@@ -18,9 +18,13 @@ const restyleFunctions = composeRestyleFunctions<Theme, RestyleBoxProps<Theme>>(
   boxRestyleFunctions,
 );
 
+/** What a `ref` on a `Pressable` (or a `Button`) points at: the host view. */
+export type PressableRef = ComponentRef<typeof RNPressable>;
+
 export type PressableProps = RestyleBoxProps<Theme> &
-  Omit<RNPressableProps, 'style' | 'children'> & {
+  Omit<RNPressableProps, 'style' | 'children' | 'ref'> & {
     children?: ReactNode;
+    ref?: Ref<PressableRef>;
     style?: StyleProp<ViewStyle>;
     /** Applied on top of `style` while pressed. Defaults to a dimmed opacity. */
     pressedStyle?: StyleProp<ViewStyle>;

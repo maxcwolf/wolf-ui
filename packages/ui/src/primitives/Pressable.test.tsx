@@ -1,6 +1,7 @@
+import { createRef } from 'react';
 import { darkTheme, lightTheme } from '../theme';
 import { fireEvent, flatStyle, render, screen, userEvent } from '../test-utils/render';
-import { Pressable } from './Pressable';
+import { Pressable, type PressableRef } from './Pressable';
 
 describe('Pressable', () => {
   it('takes theme props and calls onPress', async () => {
@@ -21,6 +22,12 @@ describe('Pressable', () => {
     });
     await userEvent.press(button);
     expect(onPress).toHaveBeenCalledTimes(1);
+  });
+
+  it('hands its host view to a ref', async () => {
+    const ref = createRef<PressableRef>();
+    await render(<Pressable ref={ref} testID="p" />);
+    expect(ref.current).not.toBeNull();
   });
 
   it('dims while pressed by default', async () => {

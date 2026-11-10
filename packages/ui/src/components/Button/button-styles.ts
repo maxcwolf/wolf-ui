@@ -54,6 +54,8 @@ export function buttonColors(variant: ButtonVariant, disabled: boolean): ButtonC
 
 export interface ButtonLayout {
   height: number;
+  /** An icon-only button is at least as wide as it is tall. */
+  minWidth: number;
   paddingX: Spacing;
   gap: Spacing;
   icon: IconSize;
@@ -63,13 +65,29 @@ export interface ButtonLayout {
 
 const heights: Record<ButtonSize, number> = { s: 36, m: 44, l: 52 };
 
-export function buttonLayout(size: ButtonSize): ButtonLayout {
+const paddings: Record<ButtonSize, Spacing> = { s: 'm', m: 'l', l: 'xl' };
+
+export function buttonLayout(size: ButtonSize, iconOnly = false): ButtonLayout {
   const height = heights[size];
   return {
     height,
-    paddingX: size === 's' ? 'm' : size === 'm' ? 'l' : 'xl',
+    minWidth: iconOnly ? height : 0,
+    paddingX: iconOnly ? 'none' : paddings[size],
     gap: size === 's' ? 'xs' : 's',
     icon: size === 'l' ? 'l' : 'm',
     hitSlop: Math.max(0, (minTouchTarget - height) / 2),
+  };
+}
+
+/**
+ * The state a button reports. `aria-busy` is set only while loading: `aria-busy=false` is read
+ * out as "not busy" on every button.
+ */
+export function buttonState(disabled: boolean, loading: boolean) {
+  const inactive = disabled || loading;
+  return {
+    disabled: inactive,
+    'aria-disabled': inactive,
+    ...(loading ? { 'aria-busy': true } : {}),
   };
 }

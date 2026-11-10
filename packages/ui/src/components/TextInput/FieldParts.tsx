@@ -2,18 +2,27 @@ import { minTouchTarget } from '@maxcwolf/ui-tokens';
 import { Box, Pressable, Text } from '../../primitives';
 import { Icon } from '../Icon';
 
+/** The accessible names of the reveal button: `show` while hidden, `hide` while revealed. */
+export interface RevealLabels {
+  show: string;
+  hide: string;
+}
+
+export const defaultRevealLabels: RevealLabels = { show: 'Show password', hide: 'Hide password' };
+
 interface RevealButtonProps {
   revealed: boolean;
+  labels: RevealLabels;
   disabled: boolean;
   onToggle: () => void;
 }
 
 /** Shows or hides a secure value. A full 44dp target inside the field (WCAG 2.5.8). */
-export function RevealButton({ revealed, disabled, onToggle }: RevealButtonProps) {
+export function RevealButton({ revealed, labels, disabled, onToggle }: RevealButtonProps) {
   return (
     <Pressable
       role="button"
-      accessibilityLabel={revealed ? 'Hide password' : 'Show password'}
+      accessibilityLabel={revealed ? labels.hide : labels.show}
       onPress={onToggle}
       disabled={disabled}
       minWidth={minTouchTarget}

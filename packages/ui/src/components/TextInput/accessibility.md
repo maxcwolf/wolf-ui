@@ -20,14 +20,16 @@ pattern. Manual results:
 
 The reveal button (only when `secure`):
 
-| Aspect   | Web                                            | iOS / Android                      |
-| -------- | ---------------------------------------------- | ---------------------------------- |
-| Role     | `role="button"`                                | `role="button"`                    |
-| Name     | `aria-label` "Show password" / "Hide password" | `accessibilityLabel`, same strings |
-| Disabled | follows the field's `disabled`                 | same                               |
-| Icon     | eye / eye-off, `aria-hidden`                   | hidden from the accessibility tree |
+| Aspect   | Web                                          | iOS / Android                      |
+| -------- | -------------------------------------------- | ---------------------------------- |
+| Role     | `role="button"`                              | `role="button"`                    |
+| Name     | `aria-label` from `revealLabels` (see below) | `accessibilityLabel`, same strings |
+| Disabled | follows the field's `disabled`               | same                               |
+| Icon     | eye / eye-off, `aria-hidden`                 | hidden from the accessibility tree |
 
-`label` is required, so a field cannot be unnamed (WCAG 1.3.1, 3.3.2).
+`label` is required, so a field cannot be unnamed (WCAG 1.3.1, 3.3.2). The reveal button's names
+default to "Show password" / "Hide password"; pass `revealLabels={{ show, hide }}` with translated
+strings in other languages.
 
 ## Keyboard
 
@@ -47,6 +49,8 @@ The reveal button (only when `secure`):
   (`fieldBorderColor`), on every focus, mouse or keyboard, as native inputs do. An invalid field
   keeps its `danger` border while focused, so only the width changes.
 - The reveal button uses the `Pressable` focus ring on keyboard focus only.
+- `ref` is the native input, so a form can call `ref.current?.focus()` to move focus to the next
+  field or to the first invalid one after a failed submit.
 - Revealing the password does not move focus. A new error does not move focus; it is announced
   through the live region instead.
 - A disabled field is still reachable by Tab on the web (it is read only), so its value can be

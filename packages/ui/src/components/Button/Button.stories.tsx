@@ -24,18 +24,29 @@ export const Disabled: Story = { args: { disabled: true } };
 export const WithIcons: Story = {
   args: { iconStart: 'plus', iconEnd: 'arrow-right', children: 'Add item' },
 };
+/** No visible label, so `accessibilityLabel` is required and names the button. */
+export const IconOnly: Story = {
+  render: () => (
+    <Stack direction="row" gap="m" alignItems="center">
+      <Button icon="close" accessibilityLabel="Close" size="s" variant="ghost" />
+      <Button icon="search" accessibilityLabel="Search" variant="secondary" />
+      <Button icon="plus" accessibilityLabel="Add item" size="l" />
+    </Stack>
+  ),
+};
 export const Loading: Story = { args: { loading: true }, tags: ['skip-visual'] };
 
 export const Sizes: Story = {
-  render: (args) => (
+  // Only the props every button has: `args` may be either form of the props union.
+  render: ({ variant = 'primary', disabled = false, loading = false }) => (
     <Stack gap="m">
-      <Button {...args} size="s">
+      <Button variant={variant} disabled={disabled} loading={loading} size="s">
         Small
       </Button>
-      <Button {...args} size="m">
+      <Button variant={variant} disabled={disabled} loading={loading} size="m">
         Medium
       </Button>
-      <Button {...args} size="l">
+      <Button variant={variant} disabled={disabled} loading={loading} size="l">
         Large
       </Button>
     </Stack>

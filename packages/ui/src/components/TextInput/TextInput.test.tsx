@@ -1,6 +1,7 @@
+import { createRef } from 'react';
 import { createWolfTheme, darkTheme, lightTheme } from '../../theme';
 import { fireEvent, render, screen, userEvent } from '../../test-utils/render';
-import { TextInput } from './TextInput';
+import { TextInput, type TextInputRef } from './TextInput';
 
 describe('TextInput', () => {
   it('is named by its label and reports typing', async () => {
@@ -54,6 +55,24 @@ describe('TextInput', () => {
     expect(input).toHaveProp('secureTextEntry', false);
     await userEvent.press(screen.getByRole('button', { name: 'Hide password' }));
     expect(input).toHaveProp('secureTextEntry', true);
+  });
+
+  it('names the reveal button with revealLabels, so it can be translated', async () => {
+    await render(
+      <TextInput
+        label="Mot de passe"
+        secure
+        revealLabels={{ show: 'Afficher le mot de passe', hide: 'Masquer le mot de passe' }}
+      />,
+    );
+    await userEvent.press(screen.getByRole('button', { name: 'Afficher le mot de passe' }));
+    expect(screen.getByRole('button', { name: 'Masquer le mot de passe' })).toBeOnTheScreen();
+  });
+
+  it('hands the native input to a ref, so a form can move focus to it', async () => {
+    const ref = createRef<TextInputRef>();
+    await render(<TextInput label="Email" ref={ref} />);
+    expect(ref.current).not.toBeNull();
   });
 
   it('forwards focus and blur', async () => {
